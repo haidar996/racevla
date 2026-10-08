@@ -1,0 +1,14 @@
+.venv/
+__pycache__/
+*.pyc
+*.egg-info/
+.ipynb_checkpoints/
+checkpoints/
+logs/
+data/
+results/
+MUJOCO_LOG.TXT
+# training outputs are large; only the evaluation tables/figures are tracked
+outputs/*
+!outputs/analysis/
+models/standing_policy_td3_seed1_backup.zip

@@ -1,0 +1,12 @@
+lift,kind,level,success,fell,left_course,stuck
+0.12,rough,0.0,20,0,0,0
+0.12,rough,0.08,20,0,0,0
+0.12,slope_up,15,20,0,0,0
+0.12,rough,0.1,18,2,0,0
+0.12,stairs_up,0.04,20,0,0,0
+0.12,stairs_up,0.06,20,0,0,0
+0.12,stairs_up,0.08,14,3,2,1
+0.12,stairs_up,0.1,0,13,0,7
+0.12,stairs_down,0.06,20,0,0,0
+0.12,stairs_up,0.12,0,9,0,11
+0.12,stairs_down,0.1,19,0,0,1
