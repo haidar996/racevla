@@ -1,6 +1,6 @@
 # RaceVLA
 
-![python](https://img.shields.io/badge/python-3.10%2B-blue) ![license](https://img.shields.io/badge/license-MIT-green) ![sim](https://img.shields.io/badge/sim-MuJoCo-orange)
+[![tests](https://github.com/haidar996/racevla/actions/workflows/tests.yml/badge.svg)](https://github.com/haidar996/racevla/actions/workflows/tests.yml) ![python](https://img.shields.io/badge/python-3.10%2B-blue) ![license](https://img.shields.io/badge/license-MIT-green) ![sim](https://img.shields.io/badge/sim-MuJoCo-orange)
 
 **Learning a locomotion skill library for the Unitree Go1 quadruped in MuJoCo, as the foundation for vision-language guided skill switching.**
 
@@ -74,6 +74,8 @@ python scripts/phase6_terrain/05_train_terrain_ppo.py --help   # see 'models/ter
 ```bash
 pip install -e ".[dev]" && pytest -q     # 11 smoke tests, ~10 s: environments, terrain generator, every released policy loads and behaves
 ```
+
+The same tests run in GitHub Actions on every push.
 
 ## Repository layout
 
