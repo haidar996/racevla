@@ -12,3 +12,4 @@ MUJOCO_LOG.TXT
 outputs/*
 !outputs/analysis/
 models/standing_policy_td3_seed1_backup.zip
+linkedin/
