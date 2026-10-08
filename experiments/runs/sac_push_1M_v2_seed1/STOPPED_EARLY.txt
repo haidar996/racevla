@@ -1,0 +1,1 @@
+Stopped by battery watchdog; last eval at 450000 steps. checkpoints/ holds one model per completed evaluation; latest_model.zip is at most ~10k steps older than the stop.

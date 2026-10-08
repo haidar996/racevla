@@ -1,0 +1,367 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[margin=0.95in]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{graphicx}
+\usepackage[colorlinks=true, linkcolor=blue, urlcolor=blue, citecolor=blue]{hyperref}
+\usepackage[table]{xcolor}
+\usepackage{colortbl}
+\usepackage{booktabs}
+\usepackage{tabularx}
+\usepackage{float}
+\usepackage{enumitem}
+\usepackage{amsmath, amssymb}
+\usepackage[most]{tcolorbox}
+\usepackage{titlesec}
+\usepackage{fancyhdr}
+\usepackage{caption}
+\usepackage{needspace}
+\graphicspath{{../analysis/}}
+\setlist[itemize]{nosep, leftmargin=*, topsep=2pt, partopsep=0pt}
+\setlist[enumerate]{nosep, leftmargin=*, topsep=2pt, partopsep=0pt}
+\widowpenalty=10000 \clubpenalty=10000
+\definecolor{rblue}{RGB}{35,68,120}
+\definecolor{rlight}{RGB}{235,241,250}
+\definecolor{good}{RGB}{225,244,230}
+\definecolor{warn}{RGB}{255,243,214}
+\definecolor{bad}{RGB}{252,230,228}
+\titleformat{\section}{\Large\bfseries\color{rblue}}{\thesection}{0.6em}{}
+\titleformat{\subsection}{\large\bfseries\color{rblue}}{\thesubsection}{0.6em}{}
+\titleformat{\subsubsection}{\normalsize\bfseries\color{rblue}}{\thesubsubsection}{0.5em}{}
+\pagestyle{fancy}\fancyhf{}\rhead{\small RaceVLA Phase 3 analysis}\lfoot{\small 2026-10-01}\rfoot{\thepage}
+\captionsetup{font=small, labelfont=bf}
+\newcommand{\tagv}{\textbf{[verified]}}
+\newcommand{\tags}{\textbf{[supported]}}
+\newcommand{\tagh}{\textbf{[hypothesis]}}
+\newtcolorbox{good}[1][]{colback=good, colframe=green!50!black, boxrule=0.6pt, arc=2pt, left=6pt, right=6pt, top=4pt, bottom=4pt, #1}
+\newtcolorbox{warnbox}[1][]{colback=warn, colframe=orange!70!black, boxrule=0.6pt, arc=2pt, left=6pt, right=6pt, top=4pt, bottom=4pt, #1}
+\newtcolorbox{badbox}[1][]{colback=bad, colframe=red!60!black, boxrule=0.6pt, arc=2pt, left=6pt, right=6pt, top=4pt, bottom=4pt, #1}
+\newtcolorbox{infobox}[1][]{colback=rlight, colframe=rblue, boxrule=0.6pt, arc=2pt, left=6pt, right=6pt, top=4pt, bottom=4pt, #1}
+
+\begin{document}
+\begin{center}
+{\LARGE\bfseries\color{rblue} RaceVLA Phase 3: Standing and Push Recovery}\\[4pt]
+{\Large Full analysis of all PPO and SAC experiments}\\[6pt]
+{\small Go1 quadruped, MuJoCo, 50\,Hz policy. Data: 13 training runs, 8 held-out policy evaluations, 10 behavioural diagnostics, 3 ablations (contact threshold, warm-up, fresh-seed confirmation). Written 2026-10-01.}
+\end{center}
+\vspace{4pt}
+
+%==========================================================================================
+\section{Executive summary}
+\begin{good}[title={The good results}]
+\begin{itemize}
+\item \textbf{Everything we trained learned real push recovery.} On 200 fresh seeds, doing nothing falls in 61\,\% of episodes. The best PPO checkpoint falls in 9.5\,\% and the best SAC checkpoint in 5.5\,\%.
+\item \textbf{The best SAC and the best PPO are not statistically different} (5.5\,\% vs 9.5\,\%, paired exact McNemar $p=0.115$). Either is a usable standing policy.
+\item \textbf{SAC is more robust to hard pushes than PPO.} After one controlled push, the old SAC best never falls up to 1.2\,m/s (the training maximum) and falls only 10\,\% at 1.4 and 17\,\% at 1.6\,m/s. PPO falls 7\,\%, 48\,\% and 66\,\% at 1.2, 1.4 and 1.6\,m/s.
+\item \textbf{SAC learns in less than half the steps} (median 200k steps to reach 10 or fewer falls out of 30, against 450k for PPO).
+\item \textbf{A 0.5\,s passive warm-up (hold the home pose before the policy acts) removes start-up falls for policies that stand near the home pose:} the old SAC best falls in 0 of 200 episodes (from 11), PPO in 11 of 200 (from 19), and SAC v2 seed 1 in 16 of 200 (from 53).
+\item \textbf{The v2 recipe fixed SAC's oscillation.} Its second-half swing between evaluations is 6 falls, against 26 for the original, and it has no relapses (the original had 7).
+\item \textbf{TD3 (two seeds) is the most consistent algorithm:} 0 falls in 200 fresh episodes with a short warm-up on both seeds, and the most push-robust model of the project (Section~\ref{sec:final}).
+\item \textbf{PPO with wider training pushes and checkpoint selection reached 1.0\,\% and 0.5\,\% falls on 200 fresh seeds for two of three seeds} (Section~\ref{sec:wide}), the lowest of the project; the third seed stayed at 32.5\,\%.
+\item \textbf{New tools:} held-out evaluation (\texttt{05\_eval\_many\_seeds.py}), checkpoint selection with an unbiased re-test (\texttt{06\_select\_checkpoint.py}) and per-evaluation checkpoint saving.
+\end{itemize}
+\end{good}
+
+\begin{badbox}[title={The main problems and what we found}]
+\begin{enumerate}
+\item \textbf{Our 30-episode ``best'' numbers were optimistic.} PPO's ``0/30'' is 9.5\,\% on fresh seeds, and v2's ``2/30'' is 18.5\,\%. A simulation shows that the best of 20 checkpoints looks like 4\,\% on 30 episodes even when every checkpoint truly falls 15\,\%. \tagv
+\item \textbf{SAC v2 and v3 fail at the start of episodes.} 66\,\% of v2's falls happen before the first push. Most of these (50 to 88\,\% depending on the policy) are shallow lower-leg touches of 3 to 10\,mm that the strict 3\,mm termination rule counts as falls. The genuine collapses are a minority. \tagv
+\item \textbf{PPO has large seed-to-seed variance} (best result 0 to 27\,\% across 9 runs with similar settings) and no tuning we tried removed it. \tagv
+\item \textbf{Our first explanation for the start-up falls was wrong.} Making episode starts four times more common (v3) did not fix them, and PPO has the same share of start data yet almost no start-up falls. \tagv
+\end{enumerate}
+\end{badbox}
+
+\begin{infobox}[title={Recommendation}]
+Standing is good enough to move on. Use the old SAC best checkpoint or the PPO best checkpoint as the Phase 3 policy, report fall rates only from held-out seeds with confidence intervals, and select checkpoints on 100+ seeds with an unbiased re-test. Start the policy after a 0.5\,s passive warm-up (Section~\ref{sec:warmup}). If more SAC work is wanted, test a \emph{tighter action range for SAC} so that its stance stays near the home pose, not more entropy or buffer tuning.
+\end{infobox}
+
+%==========================================================================================
+\section{Setup and what was run}
+\subsection{Task and environment}
+A Unitree Go1 (12 joints) in MuJoCo must stand and recover from pushes. The policy runs at 50\,Hz. It outputs 12 joint offsets from the home pose, scaled by 0.5\,rad (0.25\,rad in the very first PPO run), and a PD controller (stiffness 100\,N\,m/rad, damping 0.5) runs at 500\,Hz with torque clipped at 23.7\,N\,m (hip, thigh) and 35.55\,N\,m (calf). Observations are 45-D (joint positions and velocities, gravity direction, body angular and linear velocity, previous action), divided by fixed physical scales. Episodes last 1000 steps (20\,s). Pushes of 0.4 to 1.2\,m/s are applied every 1 to 3\,s after a 1\,s grace period. An episode ends as a fall at 60$^\circ$ tilt or when any non-foot geom is pressed more than 3\,mm into the floor. The reward is always positive, a weighted sum of upright, height and pose kernels discounted by action-rate and joint-velocity penalties.
+
+\subsection{Runs}
+\begin{table}[H]\centering\small
+\begin{tabular}{@{}llp{7.2cm}r@{}}
+\toprule
+Group & Runs & Settings & Time/1M steps\\\midrule
+PPO & 9 & 1 to 3 seeds per setting; action scale 0.25$\to$0.5; batch 2048$\to$8192; clip 0.2$\to$0.1; LR constant$\to$linear decay; fixed observation scaling & 28--30 min\\
+SAC old & 1 & buffer 300k, constant LR 3e-4, 1-step returns, target entropy $-12$ & 328 min\\
+SAC v2 & 2 & buffer 1M, LR decayed to 0, 5-step returns (seed 0 complete; seed 1 stopped at 480k steps by low battery) & 308 min\\
+SAC v3 & 1 & v2 plus training episodes capped at 250 steps (stopped at 680k steps by low battery) & --\\
+\bottomrule\end{tabular}
+\caption{All training runs. Every run used 4 parallel environments and the same push task.}
+\end{table}
+
+\subsection{Evaluation protocol}
+\begin{itemize}
+\item \textbf{During training:} a 30-episode fixed-seed evaluation (seeds 1000--1029) every 25k to 50k steps, with a deterministic policy. This is cheap but noisy, because one fall moves the score 3.3 points.
+\item \textbf{Held-out test (new):} 200 fresh seeds (2000--2199), never used to pick a checkpoint, with falls split into \emph{start-up} (before step 100, before any push can occur) and \emph{push} falls. Intervals are 95\,\% Wilson; comparisons are paired exact McNemar tests on the shared seeds.
+\item \textbf{Diagnostics (new):} 60 episodes per policy for behaviour, critic values and contact bodies, plus a controlled push test (one kick at step 100, 7 sizes, 30 episodes each).
+\end{itemize}
+
+%==========================================================================================
+\needspace{14\baselineskip}
+\section{Results}
+\subsection{Learning curves}
+\begin{figure}[H]\centering\includegraphics[width=.9\linewidth]{fig1_curves.png}
+\caption{Falls out of 30 evaluation episodes during training. The original SAC swings between 2 and 30 falls after 500k steps, while v2 settles at 5 to 9. PPO runs end between 2 and 12.}\end{figure}
+
+\begin{table}[H]\centering\small
+\begin{tabular}{@{}lrrrrr@{}}
+\toprule
+Run & Best & Final & Mean, 2nd half & Largest swing, 2nd half & Steps to $\le$10 falls\\\midrule
+PPO \#3 seed 0 & 0 & 2 & 2.4 & 5 & 250k\\
+PPO \#4 seed 1 & 7 & 11 & 12.2 & 9 & 950k\\
+PPO \#5 seed 2 & 8 & 10 & 13.0 & 7 & 300k\\
+PPO \#6--\#8 (vt, 3 seeds) & 2--7 & 2--12 & 5.6--9.9 & 7--11 & 450--650k\\
+PPO \#9 (2M) & 5 & 12 & 9.5 & 9 & 800k\\
+SAC old & 2 & 16 & 16.5 & \textbf{26} & 250k\\
+SAC v2 seed 0 & 2 & 6 & 6.3 & 6 & 150k\\
+SAC v2 seed 1$^*$ & 8 & 9 & 11.6 & 9 & 200k\\
+SAC v3$^*$ & 1 & 1 & 5.4 & 15 & 200k\\\bottomrule
+\end{tabular}
+\caption{Falls out of 30 on the training-time evaluation seeds. $^*$ stopped early. These curve statistics are noisy: use them for the shape of learning, not for ranking final quality.}
+\end{table}
+
+\subsection{Held-out results}
+\begin{figure}[H]\centering\includegraphics[width=.88\linewidth]{fig3_heldout.png}
+\caption{Fall rate on 200 fresh seeds. Hatched part: falls before the first push can happen.}\end{figure}
+
+\begin{table}[H]\centering\small
+\begin{tabular}{@{}lrrrrr@{}}
+\toprule
+Policy & Falls & 95\,\% interval & Start-up & Push & Return\\\midrule
+Do nothing & 122/200 (61.0\,\%) & 54--68 & 0 & 122 & 678\\
+SAC old best (500k) & 11/200 (5.5\,\%) & 3.1--9.6 & 10 & 1 & 905\\
+PPO best (500k) & 19/200 (9.5\,\%) & 6.2--14.4 & 6 & 13 & 903\\
+SAC v2 s0 last & 30/200 (15.0\,\%) & 10.7--20.6 & 25 & 5 & 798\\
+SAC v2 s0 best (450k) & 37/200 (18.5\,\%) & 13.7--24.5 & 37 & 0 & 758\\
+SAC v3 best (550k) & 41/200 (20.5\,\%) & 15.5--26.6 & 19 & 22 & 758\\
+SAC v3 last (630k) & 42/200 (21.0\,\%) & 15.9--27.2 & 25 & 17 & 731\\
+SAC old last & 98/200 (49.0\,\%) & 42--56 & 9 & 89 & 683\\\bottomrule
+\end{tabular}
+\caption{Held-out results. The do-nothing result (61\,\%) matches the 60\,\% seen on the training seeds, which shows the two seed sets are comparably hard.}
+\end{table}
+
+\paragraph{Paired tests.} SAC old best vs PPO best: $b{=}6$, $c{=}14$, $p=0.115$ (not significant). v2 best and v3 best are both significantly worse than the old best and than PPO ($p<0.01$ for all four comparisons). v2 best vs v3 best: $p=0.69$, so the v3 change had no measurable total effect. The failing seeds overlap more than chance (for most pairs of policies, Jaccard 0.11--0.24 against 0.04--0.12 expected from independence), so some starting states are genuinely harder for every policy; 51 of the 200 seeds were survived by all six learned policies.
+
+\subsection{Push robustness (controlled test)}
+\begin{figure}[H]\centering\includegraphics[width=.75\linewidth]{fig4_dose.png}
+\caption{Fraction of episodes that fall after one push of a given size at step 100, counted only for episodes that survived the first 100 steps. Shaded: the range used in training.}\end{figure}
+All SAC policies are more robust than PPO beyond the training range. At 1.4\,m/s PPO falls 48\,\%, the old SAC best 10\,\%, v2 seed 0 best 5\,\%, v3 best 12\,\%. Within the training range (up to 1.2\,m/s) the best SAC checkpoints never fall in this test. This means SAC's higher fall rate in the held-out test comes from \emph{start-up}, not from pushes. This result is the strongest positive finding for SAC. \tagv
+
+\subsection{Compute cost}
+PPO needed 28--30 minutes per 1M steps; SAC needed 308--328 minutes (about 10.5 times more) because of 4 network updates per environment step. SAC reached 10 falls in a median of 200k steps (about 1 hour) and PPO in 450k steps (about 13 minutes), so PPO is faster in wall-clock time on this CPU even though SAC is more sample-efficient.
+
+%==========================================================================================
+\section{Why the problems happened}
+\subsection{Problem 1: SAC's oscillation (original run) --- fixed}
+\textbf{Observation.} After 500k steps the original SAC swung between 2 and 30 falls out of 30, six times.\\
+\textbf{Evidence that it was real.} The \emph{training-time} episode length of the noisy policy collapsed from about 800 to about 200 within 30k steps near 520--550k (Figure~\ref{fig:dyn}), and training length correlates $-0.82$ with evaluation falls. So this is not an artifact of deterministic evaluation. \tagv\\
+\textbf{Trigger.} The entropy coefficient reached its minimum (0.0035) at 500k and then doubled right as performance collapsed. \tagv\ It stayed elevated while the swings continued, so it explains the start of the collapse, not the repeated swings. After removing shared trends (first differences), entropy coefficient, critic loss and actor loss do \emph{not} consistently predict changes in falls (correlations between $-0.5$ and $+0.6$, sign flipping between runs). \tagv\\
+\textbf{Fix.} v2 (larger buffer, decaying learning rate, 5-step returns) removed the oscillation: second-half swing 6 vs 26, relapses 0 vs 7. \tagv\ We changed three things at once, so we cannot say which one did it.
+\begin{figure}[H]\centering\includegraphics[width=.92\linewidth]{fig6_training_dynamics.png}
+\caption{Original SAC (left) and v2 seed 0 (right): evaluation falls, training episode length and entropy coefficient.}\label{fig:dyn}\end{figure}
+
+\subsection{Problem 2: our headline numbers were optimistic (winner's curse)}
+Choosing the best checkpoint from about 20 evaluations of 30 episodes selects lucky ones. Held-out gaps: PPO +9.5 points, v2 +11.8, v3 +13.8; the old SAC best (selected the same way) moved by only $-1.2$. A simulation of 20 checkpoints that truly fall 15\,\% shows a best-of-20 average of 4.2\,\% on 30 episodes, close to the 6.7\,\% we saw. \tagv\ The literature agrees that selecting on the evaluation data inflates results \cite{agarwal2021}. The fix is the new two-stage selection script.
+\begin{figure}[H]\centering\includegraphics[width=.9\linewidth]{fig8_selection_bias.png}\caption{Left: the same models on the selection seeds and on fresh seeds. Right: simulated best-of-20.}\end{figure}
+
+\subsection{Problem 3: SAC fails at the start of episodes}
+\paragraph{Facts.}
+\begin{itemize}
+\item v2 seed 0's best checkpoint has 37 start-up falls and no push falls out of 200; v2 seed 1 shows the same pattern (all 9 falls at its 450k evaluation were start-up falls). PPO's 9 runs showed no start-up falls on the 30 training seeds at any checkpoint from 300k steps on. \tagv
+\item The failing contact is always a \emph{lower-leg (calf) link}, never the trunk, and the median depth is only 4.3 to 5.8\,mm, just over the 3\,mm limit. \tagv
+\item Holding the home pose (zero action) never fails at the start (0 of 200), so the starts are not impossible. \tagv
+\end{itemize}
+\begin{table}[H]\centering\small
+\begin{tabular}{@{}lrrrr@{}}
+\toprule
+Policy (60 episodes) & 3\,mm (now) & 6\,mm & 10\,mm & 20\,mm\\\midrule
+PPO best & 1 & 0 & 0 & 0\\
+SAC old best & 4 & 2 & 1 & 0\\
+SAC v2 s0 best & 12 & 8 & 6 & 5\\
+SAC v2 s0 last & 10 & 5 & 5 & 1\\
+SAC v2 s1 (450k) & 13 & 6 & 3 & 2\\
+SAC v3 best & 6 & 4 & 2 & 2\\
+SAC v3 last & 10 & 5 & 2 & 2\\\bottomrule
+\end{tabular}
+\caption{Falls out of 60 episodes (first 400 steps) as the floor-contact threshold of the termination rule is relaxed.}\label{tab:thr}
+\end{table}
+\paragraph{Most start-up ``falls'' are shallow contacts.} Relaxing the threshold from 3 to 10\,mm removes about half or more of them (v2 seed 1: 13 to 3; v3 last: 10 to 2). At 20\,mm only v2 seed 0's best checkpoint still has 5, so those are real collapses. \tagv\ The strict rule was chosen from landing brushes (up to 1.55\,mm) and ``real collapse'' (5\,mm and deeper). The observed start-up contacts sit between those values. This is partly a \emph{measurement} issue: part of SAC's fall rate comes from how strictly we define a fall.
+
+\medskip\noindent\textbf{Explanations we tested and rejected.}\par\nopagebreak\smallskip
+\begin{table}[H]\centering\small
+\begin{tabular}{@{}p{4.1cm}p{9.7cm}@{}}
+\toprule Idea & Test and result\\\midrule
+Start states are too rare in the replay data & v3 made them four times more common: held-out start-up falls did not drop clearly (19 and 25 vs 37 and 25). PPO also sees one start per 900 steps and has almost no start-up falls. \tagv\ \textbf{Rejected.}\\
+The first action is too big & AUC of first-action size for predicting a start-up fall is between 0.25 and 0.76 and centred near 0.5 (chance). \tagv\ \textbf{Rejected.}\\
+The critic is blind to the risk & The critic's value at the first step is lower for episodes that fall at the start in all SAC policies (e.g.\ v3 best 50 vs 72). It knows the risk but does not resolve which starts are risky. \tagv\ \textbf{Rejected as stated.}\\
+Standing far from the home pose & v2 seed 1 stands near home (pose reward 0.88) yet has 11 start-up falls in 60; v3 stands far (0.23) but has fewer. \tagv\ \textbf{Rejected.}\\
+One bad seed & Seed 1 repeats the pattern. \tagv\\
+A single reset condition is the trigger & Only initial tilt is weakly linked for v2 (fall rate 8\,\%, 11\,\%, 33\,\% at 0--5$^\circ$, 5--10$^\circ$, 10--15$^\circ$); different checkpoints fail on mostly different seeds (9 shared of 37 and 25). \tagv\ \textbf{No single trigger.}\\
+\bottomrule\end{tabular}
+\caption{Hypotheses about the start-up falls.}\end{table}
+\begin{figure}[H]\centering\includegraphics[width=.95\linewidth]{fig5_behaviour.png}
+\caption{Steady-state behaviour (steps 30 to 400). SAC v2 and v3 policies use larger and, for some, much jerkier actions than PPO and the old SAC.}\label{fig:beh}\end{figure}
+
+\medskip\noindent\textbf{Remaining candidate causes.}\par\nopagebreak\smallskip
+\begin{itemize}
+\item \textbf{Loose action range for SAC.} SAC squashes its output through tanh and rescales to the full declared range, so its early exploration fills the range and produces large random movements, while PPO's Gaussian stays near zero. The SB3 maintainer found exactly this and fixed it by shrinking the action bounds and lowering the initial entropy coefficient \cite{araffin}, and a legged-locomotion SAC report reaches the same conclusion \cite{legged-sac}. Our data are \emph{consistent} with this: SAC v2 and v3 use typical actions of 0.4 to 0.6 against 0.29 for PPO, and v2 seed 0's best checkpoint is about 20 times jerkier than the old SAC best (0.43 against 0.02) and far above PPO (about 0). But v2 seed 1 and the old SAC best have small actions and still fail at the start, so this is not sufficient. \tags
+\item \textbf{Landing transient and hand-over jump.} The first 5 to 25 steps drive 12 joints from random noisy poses to the policy's stance with near-saturated torque (a 0.24\,rad error already saturates the hip and thigh torque limit). The passive warm-up test (Section~\ref{sec:warmup}) supports two separate mechanisms. \tags
+\item \textbf{Uncorrected 5-step returns.} Standard n-step returns in SAC use older actions from the replay buffer and are biased \cite{sacn}; v2 and v3 use them. v2 policies are jerkier than the old SAC, but this is confounded with the other v2 changes. \tagh
+\end{itemize}
+
+\subsection{Problem 4: v3 (shorter episodes) did not help}
+v3 capped training episodes at 250 steps to make starts 4 times more common. This roughly halves the push density per step (estimated 0.55\,\% against 0.95\,\%; not measured), and held-out push falls rose from 0 and 5 (v2) to 22 and 17 (v3) while start-up falls did not clearly drop. The 30-episode curve looked excellent at 550--600k (0 start-up falls), but the held-out test showed 19 start-up falls (9.5\,\%). \tagv
+
+\subsection{Problem 5: PPO seed variance}
+Nine PPO runs gave best results from 0\,\% to 27\,\%. Widening the action range from 0.25 to 0.5\,rad was the one clear lever. Bigger batches, smaller clipping, fewer epochs, learning-rate decay and a longer run did not narrow the final spread. The best run (seed 0) shows no clearly different logged statistic: its explained variance (the critic fit) was the lowest of all runs ($-0.29$ in the second half), so critic quality did not separate the runs. Reporting about 0--27\,\% as the range for PPO is honest; we cannot say more. \tags\ In line with the literature \cite{henderson2018,agarwal2021}, conclusions from one or two seeds per setting are unreliable.
+
+\subsection{Problem 6: PPO's weaker large-push robustness}
+PPO's best checkpoint falls 48\,\% after a 1.4\,m/s push and 7\,\% at 1.2\,m/s, the top of its training range; SAC falls 0 to 10\,\%. Plausible reasons are that SAC's entropy-regularised, off-policy training sees more varied states, and that PPO's final policy is narrower (exploration std fell to 0.11--0.34). Not tested. \tagh
+
+%==========================================================================================
+\section{Passive warm-up: a deployment-level fix}\label{sec:warmup}
+The idea is simple: let the robot land and settle for $k$ policy steps with zero action (hold the home pose) before the learned policy takes over. Zero action never failed at the start (0 of 200 episodes). We tested $k=10$ (0.2\,s) and $k=25$ (0.5\,s) on the 200 held-out seeds, with the normal 3\,mm contact rule. The $k=0$ column is the held-out test of Section~3.2 (for v2 seed 1 it is a separate 200-seed run). This is a change of the \emph{protocol}, not of the policy, and it is how a real robot would normally be started (stand, settle, then switch the policy on).
+\begin{figure}[H]\centering\includegraphics[width=.92\linewidth]{fig9_warmup.png}
+\caption{Falls on 200 seeds as a function of the warm-up length. Numbers above the bars are percentages; hatched parts are start-up falls.}\end{figure}
+\begin{table}[H]\centering\small
+\begin{tabular}{@{}lcrrrr@{}}
+\toprule Policy & Stance (pose reward) & $k=0$ & $k=10$ & $k=25$ & Start-up falls at $k=25$\\\midrule
+SAC old best & 0.84 & 11 & 1 & \textbf{0} & 0\\
+PPO best & 0.70 & 19 & 12 & \textbf{11} & 0\\
+SAC v2 s1 (450k) & 0.88 & 53 & 20 & \textbf{16} & 2\\
+SAC v2 s0 best & 0.48 & 37 & 43 & 33 & 33\\
+SAC v2 s0 last & 0.47 & 30 & 37 & 21 & 19\\
+SAC v3 best & 0.23 & 41 & 47 & 49 & 31\\
+SAC v3 last & 0.29 & 42 & 30 & 69 & 61\\\bottomrule
+\end{tabular}
+\caption{Falls out of 200 (seeds 2000--2199) for different warm-up lengths $k$ (policy steps of zero action before the policy acts). ``Stance'' is the steady-state pose reward from Figure~\ref{fig:beh} (1 = standing in the home pose).}\label{tab:warm}
+\end{table}
+\paragraph{Results.}
+\begin{itemize}
+\item \textbf{A 25-step warm-up removes the start-up falls of the policies that stand near the home pose.} The old SAC best falls in 0 of 200 episodes (from 11; Fisher exact $p=0.0009$, 95\,\% upper bound 1.9\,\%) with a mean return of 953, close to the maximum. PPO falls 11 of 200 (from 19), all of them push falls. SAC v2 seed 1 falls 16 of 200 (from 53; $p=10^{-6}$). \tagv
+\item \textbf{It does not help the policies that stand far from the home pose.} v2 seed 0 changes from 37 to 33 (best) and 30 to 21 (last, but 37 at $k=10$); v3 gets worse (41 to 49, and 42 to 69 for the last checkpoint, with 30 at $k=10$). \tagv
+\item \textbf{The grouping matches stance in all 7 policies:} gains for stance reward $\ge0.70$, none for $\le0.48$. A plausible reading is that there are \emph{two} separate start-up failure mechanisms: (a) collisions during the \emph{landing}, which a passive warm-up avoids, and (b) a \emph{hand-over jump}: a policy whose preferred stance is far from the home pose must make a large move in the first policy step and sometimes touches the floor with a calf. \tags\ This also resolves the earlier puzzle that v2 seed 1 stands near home and still failed at $k=0$: its failures were of type (a). It is a correlation over only 7 policies, not a direct test.
+\item \textbf{Results for individual settings are noisy} ($\pm5$ points at 200 episodes): for example v3 last gives 42, 30 and 69 falls at $k=0,10,25$, so it is brittle at the hand-over, not simply worse with longer warm-up.
+\item \textbf{Selection caveat.} Only two warm-up lengths were tried, on the same seeds as the held-out test. We therefore repeated $k=0$ and $k=25$ for the two main policies on a second, completely fresh set of 200 seeds (4000--4199). The result replicated: the old SAC best falls in 8 of 200 without a warm-up and 0 of 200 with it (return 953), and PPO falls in 18 and 12 of 200 (start-up falls 5 and 0). Pooled over 400 seeds, the old SAC best falls in 19 episodes without and 0 with the warm-up (95\,\% upper bound 0.9\,\%), and PPO in 37 and 23.
+\end{itemize}
+
+%==========================================================================================
+\section{What the evidence supports}
+\begin{table}[H]\centering\small
+\begin{tabular}{@{}p{7.8cm}p{2.0cm}p{4.3cm}@{}}
+\toprule Claim & Status & Basis\\\midrule
+Learned policies fall far less than doing nothing & \tagv & 200 held-out seeds\\
+SAC old best and PPO best are comparable & \tagv & McNemar $p=0.115$\\
+v2/v3 are worse than both on the held-out seeds & \tagv & $p<0.01$\\
+v2 removed SAC's oscillation & \tagv & swing 6 vs 26; relapses 0 vs 7\\
+Old SAC's collapse was real policy degradation & \tagv & training episode length\\
+Our 30-seed ``best'' numbers were inflated & \tagv & held-out gaps, simulation\\
+SAC is more push-robust than PPO beyond the training range & \tagv & dose-response test\\
+Most start-up falls are shallow calf contacts & \tagv & threshold test\\
+Rare start data explains the start-up falls & rejected & v3 and PPO comparison\\
+A loose action range hurts SAC & \tags & literature plus larger actions in our data\\
+Uncorrected n-step returns cause jitter & \tagh & literature only\\
+Late-training plasticity loss contributes to SAC's instability & \tagh & literature only \cite{plasticity}\\
+A 25-step passive warm-up removes start-up falls for near-home-stance policies & \tagv & 3 policies, 200 seeds\\
+Two start-up mechanisms (landing, hand-over jump) & \tags & 7 policies, correlation\\\bottomrule
+\end{tabular}\caption{Evidence status. \tagv\ = measured here; \tags\ = literature plus partial data; \tagh\ = plausible, not tested.}\end{table}
+
+\section{Recommendations}
+\begin{enumerate}
+\item \textbf{Move on with a standing policy.} The best candidates are now the selected wide-push PPO models of seeds 2 and 0 (0.5\,\% and 1.0\,\% falls on fresh seeds, Section~\ref{sec:wide}), with the old SAC best plus warm-up (0 of 400 held-out episodes with warm-up) as the alternative. PPO is 10 times cheaper to train; SAC is more push-robust at 1.4--1.6\,m/s and less start-reliable. Always select the checkpoint: final checkpoints are poor.
+\item \textbf{Report only held-out numbers with confidence intervals.} Use at least 3 seeds per setting and 100 to 200 evaluation episodes, and use paired tests on shared seeds.
+\item \textbf{Select checkpoints on 100+ seeds, then re-test on fresh seeds} with \texttt{06\_select\_checkpoint.py} (it saves a model at every evaluation).
+\item \textbf{Use a 0.5\,s passive warm-up at episode start} (hold the home pose for 25 policy steps). It is the cheapest fix we found, but it only works for policies that stand near the home pose. \item \textbf{If we continue with SAC,} test (a) a tighter action range or lower initial exploration for SAC, so that its learned stance stays near the home pose, and (b) a less strict, depth-and-duration-based contact rule. Do not spend more time on entropy or buffer settings.
+\item \textbf{For TD3,} reuse the same protocol from the start and expect similar action-range sensitivity.
+\item \textbf{Fix the evaluation rule question explicitly:} decide whether a 4 to 6\,mm lower-leg touch counts as a fall, since it changes SAC's headline numbers by more than any hyperparameter we tuned.
+\end{enumerate}
+
+\section{Follow-up: PPO trained with wider pushes}\label{sec:wide}
+\textbf{Question.} Does training PPO against pushes up to 1.6\,m/s (instead of 1.2) make it more robust, and does selecting checkpoints on many seeds fix the final-checkpoint problem? \textbf{Setup.} The original PPO settings (runs 3--5: batch 2048, clip 0.2, 10 epochs, constant learning rate), seeds 0, 1, 2, 1M steps, training pushes 0.4--1.6\,m/s, evaluation unchanged (0.4--1.2\,m/s). A checkpoint was saved at every evaluation and selected with the two-stage script of Section~3: the best of 17 checkpoints on 100 seeds, re-tested on 200 fresh seeds (4000--4199). In all three runs, SB3's own 30-episode best model was the same checkpoint as the 100-seed selection, so comparing it with the original runs' best models is like-for-like.
+\begin{figure}[H]\centering\includegraphics[width=.97\linewidth]{fig10_wide_push.png}
+\caption{Left: falls out of 100 held-out seeds for every saved checkpoint of the three wide-push runs. Right: honest result on 200 fresh seeds, original PPO best model against wide-push selected model.}\end{figure}
+\begin{table}[H]\centering\small
+\begin{tabular}{@{}lrrrr@{}}
+\toprule Seed & Original PPO (best model) & Wide-push (selected) & Selected step & Return (wide)\\\midrule
+0 & 18/200 (9.0\,\%) & \textbf{2/200 (1.0\,\%)} & 700k & 976\\
+1 & 48/200 (24.0\,\%) & 65/200 (32.5\,\%) & 350k & 798\\
+2 & 71/200 (35.5\,\%) & \textbf{1/200 (0.5\,\%)} & 750k & 968\\\midrule
+All 3 seeds & 137/600 (22.8\,\%) & 68/600 (11.3\,\%) & & \\\bottomrule
+\end{tabular}
+\caption{Falls on 200 fresh seeds (4000--4199).}\end{table}
+\begin{table}[H]\centering\small
+\begin{tabular}{@{}llrrrr@{}}
+\toprule & Seed & 1.0\,m/s & 1.2\,m/s & 1.4\,m/s & 1.6\,m/s\\\midrule
+Original PPO & 0 / 1 / 2 & 0 / 0 / 1 & 2 / 9 / 10 & 14 / 13 / 17 & 19 / 20 / 20\\
+Wide-push PPO & 0 / 1 / 2 & 0 / 4 / 0 & 2 / 6 / 0 & 10 / 19 / 5 & 18 / 20 / 15\\
+Pooled falls & & 1\,\% vs 4\,\% & 9\,\% vs 24\,\% & 38\,\% vs 51\,\% & 60\,\% vs 68\,\%\\\bottomrule
+\end{tabular}
+\caption{Controlled push test (one push at step 100, about 29 episodes per entry, falls out of about 29). Pooled: wide-push against original. SAC best checkpoints fall 0--10\,\% at 1.4 and 9--17\,\% at 1.6\,m/s.}\end{table}
+\paragraph{What it shows.}
+\begin{itemize}
+\item \textbf{Two of three wide-push seeds reached the lowest held-out fall rates of the project} (1.0\,\% and 0.5\,\%; the old SAC best is 4--5.5\,\%). Seed 2 held 0--2 falls per 100 over nine consecutive checkpoints (400k--800k): a broad plateau, not a lucky peak. \tagv
+\item \textbf{One seed stayed poor} (seed 1, 32.5\,\%, never below 27\,\% at any checkpoint), slightly worse than its original (24.0\,\%). So the same recipe gave 0.5\,\% to 32.5\,\%: seed variance is still the dominant effect. \tagv
+\item \textbf{Pooled, the wide-push runs fall half as often} (11.3\,\% against 22.8\,\%), but with three seeds per group no seed-level test can show significance (the smallest possible two-sided $p$ for 3 against 3 is 0.10), and episodes within a seed are not independent. Treat this as promising, not proven. \tags
+\item \textbf{Robustness above 1.2\,m/s improved only a little} (pooled 24\,\% to 9\,\% at 1.2; 51\,\% to 38\,\% at 1.4; 68\,\% to 60\,\% at 1.6). PPO trained up to 1.6\,m/s still falls about 60\,\% of the time at 1.6\,m/s, while SAC (trained only up to 1.2) falls 9--17\,\%. So SAC's advantage at large pushes does not come from its training range. \tagv
+\item \textbf{The final checkpoint is bad in every run} (42\,\%, 35\,\% and 60\,\% on 100 seeds at 1M steps, against 3\,\%, 27\,\% and 0\,\% for the selected ones), so checkpoint selection is essential, and the second-stage re-test confirms that the selected models hold up on fresh seeds. \tagv
+\item \textbf{Start-up falls were negligible} for PPO (3 or fewer per 200), so PPO does not need the passive warm-up of Section~\ref{sec:warmup}.
+\end{itemize}
+
+\section{Final comparison: PPO, SAC and TD3}\label{sec:final}
+TD3 was added last (Section~\ref{sec:wide} used PPO; SAC is in Sections 3--5). TD3 used the SAC v2 recipe (1M buffer, learning rate decayed to 0, 5-step returns, 4 gradient steps per step), exploration noise 0.1, the original 0.5\,rad action range, two seeds, and the same two-stage checkpoint selection. All numbers below are on fresh seeds (4000--4199) unless noted; ``selected'' means the checkpoint chosen on 100 other seeds.
+\begin{table}[H]\centering\small
+\begin{tabular}{@{}llrrrr@{}}
+\toprule Algorithm & Setting (seeds) & No warm-up & With warm-up & Time / 1M steps\\\midrule
+PPO & original, best model (3) & 9.0, 24.0, 35.5\,\% & PPO s0: 6\,\% & 30 min\\
+PPO & wider pushes, selected (3) & 1.0, 32.5, 0.5\,\% & not needed & 30 min\\
+SAC & old best checkpoint (1) & 4.0\,\% & \textbf{0\,\%} (0/400) & 5.5 h\\
+SAC & v2, seed 1 450k, seeds 2000--2199 & 26.5\,\% & 8.0\,\% & 5.1 h\\
+TD3 & seed 0, selected 750k & 4.5\,\% & \textbf{0\,\%} (0/200) & 3.4 h\\
+TD3 & seed 1, selected 700k & 2.0\,\% & \textbf{0\,\%} (0/200) & 3.7 h\\\bottomrule
+\end{tabular}
+\caption{Falls on 200 fresh seeds. ``With warm-up'' = zero action for the first 10--25 policy steps. Doing nothing falls 61\,\%.}\end{table}
+\begin{table}[H]\centering\small
+\begin{tabular}{@{}lrrr@{}}
+\toprule Policy (falls after one controlled push, about 30 episodes) & 1.2\,m/s & 1.4\,m/s & 1.6\,m/s\\\midrule
+PPO original (3 seeds pooled) & 24\,\% & 51\,\% & 68\,\%\\
+PPO wider pushes (3 seeds pooled) & 9\,\% & 38\,\% & 60\,\%\\
+SAC old best & 0\,\% & 10\,\% & 17\,\%\\
+SAC v2 seed 0 best & 0\,\% & 5\,\% & 9\,\%\\
+TD3 seed 0 selected & \textbf{0\,\%} & \textbf{0\,\%} & \textbf{10\,\%}\\
+TD3 seed 1 selected & 3\,\% & 10\,\% & 17\,\%\\\bottomrule
+\end{tabular}
+\caption{Controlled push test (training pushes were 0.4--1.2\,m/s for SAC and TD3).}\end{table}
+\paragraph{What it shows.}
+\begin{itemize}
+\item \textbf{TD3 is the most consistent algorithm in this study.} Both seeds trained cleanly, both selected checkpoints fall at most 4.5\,\% without a warm-up and 0 of 200 with one, and TD3 seed 1 held 0--3 falls per 100 from 700k to 1M steps with no late degradation. TD3 seed 0 is the most push-robust model of the project (0 falls up to 1.4\,m/s). \tagv
+\item \textbf{All TD3 and SAC falls without a warm-up are start-up falls} (no push falls at all for TD3 at the selected checkpoints), and a 10-step (0.2\,s) warm-up removes them for both TD3 models. \tagv
+\item \textbf{PPO needs no warm-up and is 7 to 11 times cheaper per run,} but its result depends strongly on the seed (0.5\,\% to 35.5\,\%) and it is less robust above 1.2\,m/s. \tagv
+\item \textbf{With two seeds for TD3 and three for PPO, the algorithms cannot be ranked statistically.} At about 0--1\,\% falls on 200 episodes, the remaining differences are inside the sampling error. The conclusions that survive are about reliability, cost and push robustness, not about a single winner.
+\item \textbf{Two lessons held for every algorithm:} select the checkpoint on many seeds (the 30-episode best model was wrong or optimistic for PPO, SAC and TD3 seed 0, whose own pick was a 150k checkpoint), and report held-out results.
+\end{itemize}
+\paragraph{Decision.} The standing policy for the next phases is \textbf{TD3 seed 0 (750k) with a 10--25 step passive warm-up}, with TD3 seed 1 and the PPO wide-push seed 2 model as backups; files and a model card are in \texttt{models/} (\texttt{standing\_policy\_final.md}). PPO is the cheaper algorithm for the walking phase, where many training runs will be needed.
+
+\section{Limitations}
+\begin{itemize}
+\item One training seed per SAC setting (v2 has two, the second stopped at 480k steps) and one to three per PPO setting. Run-to-run variance is large, so the ranking of algorithms is not established; only the large differences are.
+\item The old SAC best and PPO best were chosen on the 30 training seeds; their held-out numbers are unbiased, but we evaluated only one checkpoint per policy.
+\item v2 seed 1 and v3 were stopped early (low battery), so their full curves are missing.
+\item Diagnostics use 60 episodes of 400 steps, so small differences between policies are not resolved. The termination rule changes the policy learned, so results with other thresholds describe the same policies, not new trainings.
+\item The literature explanations are context, not tested causes in this project.
+\end{itemize}
+
+\begin{thebibliography}{9}\small
+\bibitem{araffin} A.~Raffin, \emph{Getting SAC to work on a massive parallel simulator}. \url{https://araffin.github.io/post/sac-massive-sim/}
+\bibitem{legged-sac} \emph{Bridging the gap: enabling Soft Actor-Critic for high-performance legged locomotion}. \url{https://arxiv.org/html/2605.24975v1}
+\bibitem{agarwal2021} R.~Agarwal et al., \emph{Deep reinforcement learning at the edge of the statistical precipice}, NeurIPS 2021. \url{https://arxiv.org/abs/2108.13264}
+\bibitem{henderson2018} P.~Henderson et al., \emph{Deep reinforcement learning that matters}. \url{https://arxiv.org/pdf/1709.06560}
+\bibitem{sacn} \emph{SACn: Soft Actor-Critic with n-step returns}. \url{https://arxiv.org/abs/2512.13165}
+\bibitem{plasticity} \emph{Plasticity loss in deep reinforcement learning: a survey}. \url{https://arxiv.org/html/2411.04832v3}
+\bibitem{caps} S.~Mysore et al., \emph{Regularizing action policies for smooth control with reinforcement learning (CAPS)}. \url{https://arxiv.org/abs/2012.06644}
+\bibitem{fasttd3} \emph{FastTD3: simple, fast, and capable reinforcement learning for humanoid control}. \url{https://arxiv.org/html/2505.22642v1}
+\end{thebibliography}
+\end{document}

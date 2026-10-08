@@ -12,4 +12,4 @@ One folder per project phase. Within a folder, scripts are numbered in the order
 | `phase7_skills` | hurdle step-over (train, evaluate, view); `01`/`02` are an *experimental, paused* fall-recovery environment |
 | `make_demos.py` | renders the README GIFs |
 
-Training scripts write to `outputs/<run-name>/` (git-ignored; the released policies are in `../models/`, evaluation tables in `../outputs/analysis/`). Everything runs on CPU.
+Training scripts write to `outputs/<run-name>/` (git-ignored; the learning curves of all runs are copied to `../experiments/runs/`; the released policies are in `../models/`, evaluation tables in `../outputs/analysis/`). Everything runs on CPU.

@@ -87,6 +87,7 @@ racevla/controllers/      PD joint controller
 assets/robots/unitree_go1 MuJoCo model + terrain scene
 scripts/                  per-phase tests, training, evaluation and viewer scripts (see scripts/README.md)
 models/                   released policies + a model card (.md) for each: config, how to run, results, known limits
+experiments/              catalogue of all experiments + raw learning curves (runs/) and console logs (logs/)
 docs/                     experiment logs, option comparisons, figures, demo media
 outputs/analysis/         evaluation tables and figures behind the numbers above
 tests/                    smoke tests (pytest)
@@ -94,6 +95,7 @@ tests/                    smoke tests (pytest)
 
 ## Further reading
 
+- [`experiments/`](experiments): **every experiment in order, including failures**, with learning curves and logs for all 53 training runs
 - Model cards (exact configs, commands, full result tables): [`models/*_final.md`](models)
 - [`docs/ppo_experiments_log.md`](docs/ppo_experiments_log.md): all nine PPO runs on standing recovery
 - [`docs/walking_options_comparison.md`](docs/walking_options_comparison.md), [`docs/running_options_comparison.md`](docs/running_options_comparison.md): the design alternatives that were compared, over three seeds each
