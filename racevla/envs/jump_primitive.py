@@ -1,4 +1,4 @@
-"""Scripted jump (no learning) as a reusable controller. Parameters come from scripts/phase7_skills/10_jump_feasibility.py (outputs/analysis/jump/feasibility.json, one set per starting speed).
+"""Scripted jump (no learning) as a reusable controller. Parameters (found by a random search; stored in models/jump_primitive_hurdle.json) describe crouch depth, timing, thrust and tuck. This primitive was an experiment: it clears the bar height but flies too short a distance, so the released step-over skill does not use it (see models/hurdle_stepover_final.md).
 Phases: crouch (timed) -> thrust (until no foot touches) -> flight (legs tucked, until a foot touches) -> land (soft pose, blend back to home) -> hold. All four legs get the same foot target (x forward, z below the hip, exact two-link IK, hips at home), hind legs with a
 small extra extension / shift (ed, bd) during the thrust. target(contacts) returns the (4, 3) joint targets; the caller applies them (action = (target - home) / action_scale)."""
 import numpy as np

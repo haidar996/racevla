@@ -1,5 +1,4 @@
-"""Record a push episode with a trained policy to a GIF (for the user to watch) and a few key PNG frames
-(for Claude to inspect directly, since Claude cannot see a live viewer window).
+"""Record a push episode with a trained policy to a GIF and a few key PNG stills (just before / after each push).
 Usage: python record_episode.py <run_dir> [checkpoint file] [--seed N] [--raw] [--algo ppo|sac|td3]"""
 import os, sys, pathlib; ROOT = pathlib.Path(__file__).resolve().parents[2]; sys.path.insert(0, str(ROOT))
 os.environ.setdefault("MUJOCO_GL", "egl")
@@ -45,7 +44,7 @@ imageio.mimsave(gif_path, frames, fps=25, loop=0)
 print(f"episode: seed={seed} steps={t+1} return≈ ended={reason}")
 print(f"saved GIF: {gif_path}  ({len(frames)} frames)")
 
-# a handful of PNG stills Claude can actually look at: just before / just after each push, plus the very end
+# a handful of PNG stills: just before / just after each push, plus the very end
 saved = []
 for step, kick, fi in push_frames[:6]:
     before = out_dir / f"seed{seed}_step{step}_before.png"; imageio.imwrite(before, frames[max(fi - 3, 0)])
