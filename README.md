@@ -17,15 +17,29 @@ The long-term goal (see [Roadmap](#roadmap)) is a robot that is told in language
 
 ## Results at a glance
 
-All numbers are simulation, deterministic policies, on fresh random seeds that were not used to pick the checkpoint. The model cards in [`models/`](models) have the full tables.
+All numbers are simulation, deterministic policies, on fresh random episodes (standing: 200 seeds never used for checkpoint selection; walking 50, running 50, terrain 20 per cell, step-over 20 per bar height). The model cards in [`models/`](models) have the full tables.
 
 | Skill | Policy | Result | Scope / honest limits |
 |---|---|---|---|
 | **Stand + push recovery** | TD3, 1M steps, [`standing_policy_td3_seed0.zip`](models/standing_policy_td3_seed0.zip) | **0 / 200 falls** (20 s episodes, pushes 0.4-1.2 m/s every 1-3 s; doing nothing falls 61 %) | needs a 0.2 s passive warm-up; never trained to get up after a fall |
 | **Walking** | PPO, 1M steps, sine gait reference + learned residual, [`walking_policy_sine_seed1.zip`](models/walking_policy_sine_seed1.zip) | 0 / 50 falls, speed error 0.03 m/s, 96 % of commanded speed reached, turning 0.36 of 0.40 rad/s asked | 0-0.6 m/s, flat ground, no pushes |
 | **Running** | PPO, 3-stage speed curriculum 1.5 → 2.0 → 2.5 m/s, [`running_policy_2p5_seed0.zip`](models/running_policy_2p5_seed0.zip) | 1 / 50 falls, 94 % of commanded speed, **28 % of the time all four feet are off the ground** (commands ≥ 1 m/s) | flat ground, no pushes; the 2.5 m/s gait table row is extrapolated |
-| **Blind terrain walking** | PPO, 2M steps on a mixed curriculum, [`terrain_policy_seed2.zip`](models/terrain_policy_seed2.zip) | 99 % mean success in scope: rough ground ≤ 10 cm, slopes ±15°, stairs up ≤ 4 cm, stairs down ≤ 6 cm (the plain walking policy: 80 % at 0.4 m/s, 94 % at 0.6 m/s) | proprioception only: it cannot see steps, so tall stairs up (≥ 8 cm) are not solved |
-| **Step over a bar while running** | PPO with a far height scan, [`hurdle_stepover_seed0.zip`](models/hurdle_stepover_seed0.zip) | at 1.3-1.7 m/s: 3 cm 100 %, 5 cm 90 %, **7 cm 80 %**, 10 cm 35 %, ≥ 15 cm ~0 % (20 episodes each) | reliable to about 7 cm; the original 10-25 cm target was **not** reached (see below) |
+| **Blind terrain walking** | PPO, 2M steps on a mixed curriculum, [`terrain_policy_seed2.zip`](models/terrain_policy_seed2.zip) | 99 % mean success in scope: rough ground ≤ 10 cm, slopes ±15°, stairs up ≤ 4 cm, stairs down ≤ 6 cm (the plain walking policy: 80 % at 0.4 m/s, 94 % at 0.6 m/s) | proprioception only: it cannot see steps, so tall stairs up (≥ 8 cm) are not solved; no pushes |
+| **Step over a bar while running** | PPO with a far height scan, [`hurdle_stepover_seed0.zip`](models/hurdle_stepover_seed0.zip) | at 1.3-1.7 m/s: 3 cm 100 %, 5 cm 90 %, **7 cm 80 %**, 10 cm 35 %, ≥ 15 cm ~0 % (20 episodes each) | reliable to about 7 cm; the original 10-25 cm target was **not** reached (see below); the checkpoint was picked on the same 20-episode evaluation, so these numbers are slightly optimistic |
+
+## Skill interfaces
+
+Each skill is a separate policy with its own command input. This is what a supervisor (the next step of the project) has to provide:
+
+| Skill | Command it takes | Observation | Action | Notes |
+|---|---|---|---|---|
+| Stand + push recovery | none | 45 | 12 joint offsets | 0.2 s passive warm-up first |
+| Walking | forward speed 0-0.6 m/s, yaw rate ±0.5 rad/s | 49 (45 + command + 2 gait-clock values) | 12 | stands still when told 0 |
+| Running | forward speed 0-2.5 m/s, yaw rate ±0.5 rad/s | 49 | 12 | needs `models/running_gait_table.json` |
+| Blind terrain walking | forward 0.4-0.8 m/s + heading hold | 49 | 12 | 20 % flat, rest rough / slopes / stairs in training |
+| Step over a bar | forward 1.3-1.7 m/s + far height scan | 75 (49 + 24 scan + 2 unused) | 12 | the scan comes from the simulator height map |
+
+Observations are normalised with `FixedObsNormalize`; a raw observation makes any policy meaningless.
 
 ## How it works
 
@@ -33,7 +47,7 @@ All numbers are simulation, deterministic policies, on fresh random seeds that w
 - **Actions and observations.** The policy outputs joint-angle offsets; the 45-number robot observation (joint positions/velocities, gravity vector, body velocities, last action) is scaled by *fixed* physical limits ([`FixedObsNormalize`](racevla/envs/wrappers.py)) instead of running statistics, so policies from different seeds see identical inputs.
 - **Reference + residual for gaits.** Pure reward shaping never produced a clean trot (option C in [`docs/walking_options_comparison.md`](docs/walking_options_comparison.md): 0 of 3 seeds learned it). What worked: a gait clock drives a sine-shaped foot trajectory (exact two-link leg inverse kinematics), and the network learns a small correction on top. It learned to walk in about 200-250k steps instead of never.
 - **Running = the same idea, with a speed-dependent gait table** (step rate 2.5 → 4 Hz, longer swing, 4 cm stance push-off) and a speed curriculum warm-started from the walking policy. The flight phase appears as a by-product, it is not rewarded as a goal.
-- **Terrain.** A MuJoCo height field generator (rough ground, slopes, stairs up/down, hurdles) and a per-terrain-type curriculum: each difficulty level unlocks at ≥ 80 % success.  All terrain types are mixed within one training run.
+- **Terrain.** A MuJoCo height field generator (rough ground, slopes, stairs up/down, hurdles) and a per-terrain-type curriculum: each difficulty level unlocks at ≥ 80 % success. All terrain types are mixed within one training run.
 - **Seeing a bar.** The step-over skill gets a coarse far scan of the ground height (8 rows, 0.2-1.6 m ahead, max-pooled so a thin bar is never skipped) and a reference gait that lifts each swing foot to the highest ground within 0.32 m ahead.
 
 ## What did not work (kept in the repo on purpose)
@@ -57,7 +71,8 @@ python scripts/phase5_running/06_view_running.py models/running_policy_2p5_seed0
 python scripts/phase6_terrain/06_view_stairs_tour.py --terrains others
 python scripts/phase7_skills/18_view_stepover.py
 
-# regenerate the GIFs above (headless)
+# (viewers need a display; the GIF script renders headless with EGL)
+# regenerate the GIFs above
 python scripts/make_demos.py
 ```
 
@@ -95,7 +110,7 @@ tests/                    smoke tests (pytest)
 
 ## Further reading
 
-- [`experiments/`](experiments): **every experiment in order, including failures**, with learning curves and logs for all 53 training runs
+- [`experiments/`](experiments): **every experiment in order, including failures**, with learning curves and logs for all 53 run folders
 - Model cards (exact configs, commands, full result tables): [`models/*_final.md`](models)
 - [`docs/ppo_experiments_log.md`](docs/ppo_experiments_log.md): all nine PPO runs on standing recovery
 - [`docs/walking_options_comparison.md`](docs/walking_options_comparison.md), [`docs/running_options_comparison.md`](docs/running_options_comparison.md): the design alternatives that were compared, over three seeds each
