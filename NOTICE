@@ -1,0 +1,3 @@
+Third-party material
+
+assets/robots/unitree_go1: Unitree Go1 MuJoCo model from MuJoCo Menagerie (https://github.com/google-deepmind/mujoco_menagerie), BSD 3-Clause License, Copyright (c) 2016-2022 HangZhou YuShu TECHNOLOGY CO.,LTD. ("Unitree Robotics"). See assets/robots/unitree_go1/LICENSE. scene_terrain.xml is an addition of this project.
