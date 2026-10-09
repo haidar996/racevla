@@ -80,6 +80,8 @@
     <body name="trunk" pos="0 0 0.445" childclass="go1">
       <camera name="tracking" mode="trackcom" pos="0 -1 0.8" xyaxes="1 0 0 0 1 1"/>
       <site name="head" pos="0.3 0 0" rgba="1 0 0 1" size="0.02" group="5"/>
+      <!-- onboard depth camera (Phase 10, vision): at the front of the trunk, pitched 25 deg down, 58 deg vertical field of view. xyaxes = (image right = robot right, image up); the camera looks along its -z axis. No physics. -->
+      <camera name="onboard" pos="0.32 0 0.04" xyaxes="0 -1 0 0.4226 0 0.9063" fovy="58"/>
       <inertial pos="0.0223 0.002 -0.0005" quat="-0.00342088 0.705204 0.000106698 0.708996" mass="5.204"
         diaginertia="0.0716565 0.0630105 0.0168101"/>
       <freejoint/>

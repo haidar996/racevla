@@ -56,24 +56,34 @@ def height_field(kind, level, seed=None):
 
 
 class TerrainMixin:
-    """Put FIRST in the class list:  class Terrain...(TerrainMixin, Go1WalkingSineEnv): pass  (see make_terrain_env). reset(options={'terrain': (kind, level), 'terrain_seed': int, 'yaw': rad})."""
+    """Put FIRST in the class list:  class Terrain...(TerrainMixin, Go1WalkingSineEnv): pass  (see make_terrain_env). reset(options={'terrain': (kind, level), 'terrain_seed': int, 'yaw': rad}).
+    A subclass can use a longer course by overriding the three class attributes below (racevla/envs/race.py: 46 m long); the height field in the scene file must have ncol points from x = X0 to x = x1."""
+    scene_path, ncol, x1 = TERRAIN_XML, NCOL, X1
+
     def __init__(self, *args, **kwargs):
-        super().__init__(*args, scene_xml=str(TERRAIN_XML), **kwargs)
-        m = self.model; self.hf_id = int(m.geom_dataid[self.floor_id]); assert m.hfield_nrow[self.hf_id] == NROW and m.hfield_ncol[self.hf_id] == NCOL and abs(m.hfield_size[self.hf_id][2] - ELEV_Z) < 1e-9
-        self.terrain = ("rough", 0.0); self.set_terrain("rough", 0.0, 0)
+        super().__init__(*args, scene_xml=str(self.scene_path), **kwargs)
+        m = self.model; self.hf_id = int(m.geom_dataid[self.floor_id]); assert m.hfield_nrow[self.hf_id] == NROW and m.hfield_ncol[self.hf_id] == self.ncol and abs(m.hfield_size[self.hf_id][2] - ELEV_Z) < 1e-9
+        self.terrain = ("rough", 0.0)
+        if self.ncol == NCOL: self.set_terrain("rough", 0.0, 0)
+        else: self.set_height_field(np.zeros((NROW, self.ncol)), 0.0, ("rough", 0.0))                  # a longer course starts flat
 
     def set_terrain(self, kind, level, seed=None):
-        H, z0 = height_field(kind, level, seed); m = self.model; adr, n = int(m.hfield_adr[self.hf_id]), NROW * NCOL
-        m.hfield_data[adr:adr + n] = (H / ELEV_Z).ravel().astype(np.float32); self.terrain, self.ground_height, self._H = (kind, level), z0, H
+        H, z0 = height_field(kind, level, seed); self.set_height_field(H, z0, (kind, level))
+
+    def set_height_field(self, H, z0, label):
+        """Write a ready-made height array (NROW, ncol), in metres, into the scene; z0 = the ground height at the start; label = what self.terrain reports."""
+        m = self.model; adr, n = int(m.hfield_adr[self.hf_id]), NROW * self.ncol; assert H.shape == (NROW, self.ncol) and H.max() < ELEV_Z and H.min() >= 0.0
+        m.hfield_data[adr:adr + n] = (H / ELEV_Z).ravel().astype(np.float32); self.terrain, self.ground_height, self._H = label, z0, H
 
     def reset(self, seed=None, options=None):
-        if options and options.get("terrain") is not None:
+        if options and options.get("height_field") is not None: self.set_height_field(*options["height_field"])          # (H, z0, label): a ready-made course
+        elif options and options.get("terrain") is not None:
             self.set_terrain(*options["terrain"], seed=options.get("terrain_seed", seed))
         return super().reset(seed=seed, options=options)
 
     def ground_height_at(self, x, y):
         """Terrain height at world points (x, y) (arrays allowed) by bilinear interpolation of the stored height array (fast, no ray casting); points off the course are clamped to the border."""
-        fx = np.clip((np.asarray(x, float) - X0) / (X1 - X0) * (NCOL - 1), 0, NCOL - 1.000001); fy = np.clip((np.asarray(y, float) + Y_HALF) / (2 * Y_HALF) * (NROW - 1), 0, NROW - 1.000001)
+        fx = np.clip((np.asarray(x, float) - X0) / (self.x1 - X0) * (self.ncol - 1), 0, self.ncol - 1.000001); fy = np.clip((np.asarray(y, float) + Y_HALF) / (2 * Y_HALF) * (NROW - 1), 0, NROW - 1.000001)
         ix, iy = fx.astype(int), fy.astype(int); ax, ay = fx - ix, fy - iy; H = self._H
         return (H[iy, ix] * (1 - ax) * (1 - ay) + H[iy, ix + 1] * ax * (1 - ay) + H[iy + 1, ix] * (1 - ax) * ay + H[iy + 1, ix + 1] * ax * ay)
 

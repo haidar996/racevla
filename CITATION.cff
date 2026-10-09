@@ -1,10 +1,10 @@
 cff-version: 1.2.0
 message: "If you use this repository, please cite it."
-title: "RaceVLA: a Unitree Go1 locomotion skill library in MuJoCo"
+title: "RaceVLA: a Unitree Go1 locomotion skill library, skill supervisor and vision pipeline in MuJoCo"
 type: software
 authors:
   - alias: haidar996
 repository-code: "https://github.com/haidar996/racevla"
 license: MIT
-version: 0.1.0
-date-released: 2026-10-08
+version: 0.2.0
+date-released: 2026-10-09

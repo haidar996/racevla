@@ -13,17 +13,20 @@ W, H, OUT = 560, 350, ROOT / "docs" / "media"; OUT.mkdir(parents=True, exist_ok=
 class Recorder:
     def __init__(self, raw, dist=2.4, elev=-10, azim=90):
         self.raw = raw; self.r = mujoco.Renderer(raw.model, H, W); self.cam = mujoco.MjvCamera(); self.cam.type = mujoco.mjtCamera.mjCAMERA_TRACKING
-        self.cam.trackbodyid = 1; self.cam.distance, self.cam.elevation, self.cam.azimuth = dist, elev, azim; self.frames = []; self.n = 0
+        self.cam.trackbodyid = 1; self.cam.distance, self.cam.elevation, self.cam.azimuth = dist, elev, azim; self.frames = []; self.dts = []; self.n = 0
     def terrain_changed(self):
         mujoco.mjr_uploadHField(self.raw.model, self.r._mjr_context, self.raw.hf_id)
     def grab(self, title, line2="", every=2):
         self.n += 1
         if self.n % every: return
+        self.dts.append(every * 0.02)                                       # simulated seconds between kept frames (50 Hz policy)
         self.r.update_scene(self.raw.data, camera=self.cam); img = Image.fromarray(self.r.render()); d = ImageDraw.Draw(img)
         d.rectangle([0, 0, W, 46], fill=(20, 20, 28)); d.text((10, 6), title, fill=(255, 255, 255)); d.text((10, 26), line2, fill=(160, 220, 255)); self.frames.append(np.asarray(img))
-    def save(self, name, fps=25):
+    def save(self, name, speed=1.0):
+        """speed = playback speed relative to real time (1 = real time, 0.5 = slow motion x2, 3.5 = time-lapse x3.5)."""
+        self.speed = speed
         p = OUT / f"{name}.gif"; ims = [Image.fromarray(f).quantize(colors=48, method=Image.Quantize.MEDIANCUT, dither=Image.Dither.NONE) for f in self.frames]
-        ims[0].save(p, save_all=True, append_images=ims[1:], duration=int(1000 / fps), loop=0, optimize=True); print(f"{p}  {len(self.frames)} frames  {p.stat().st_size / 1e6:.1f} MB", flush=True)
+        ims[0].save(p, save_all=True, append_images=ims[1:], duration=[max(20, int(round(d * 1000 / speed / 10) * 10)) for d in self.dts], loop=0, optimize=True); print(f"{p}  {len(self.frames)} frames  {p.stat().st_size / 1e6:.1f} MB", flush=True)
 
 
 def standing():
@@ -35,7 +38,7 @@ def standing():
         obs, r, term, trunc, info = env.step(act); kicks += int(info["push_kick"] > 0)
         rec.grab("Skill 1: standing balance + push recovery (TD3)", f"random pushes up to 1.2 m/s   pushes so far: {kicks}   t = {t * 0.02:.1f} s", every=3)
         if term or trunc: break
-    rec.save("standing")
+    rec.save("standing"); return rec
 
 
 def walking():
@@ -48,7 +51,7 @@ def walking():
         for t in range(120):
             setc(obs, (vx, wz)); obs, r, term, trunc, info = env.step(model.predict(obs, deterministic=True)[0]); setc(obs, (vx, wz))
             rec.grab("Skill 2: velocity-command walking (sine gait reference + PPO residual)", f"command: {label}   actual vx {info['vx']:.2f} m/s", every=3)
-    rec.save("walking")
+    rec.save("walking"); return rec
 
 
 def running():
@@ -62,7 +65,7 @@ def running():
             setc(obs, (vx, 0.0)); obs, r, term, trunc, info = env.step(model.predict(obs, deterministic=True)[0]); setc(obs, (vx, 0.0)); air = raw._foot_contacts().sum() == 0
             rec.grab("Skill 3: running up to 2.5 m/s with flight phases", f"command: {label}   actual {info['vx']:.2f} m/s" + ("   FLIGHT (all feet off the floor)" if air else ""), every=3)
             if term: break
-    rec.save("running")
+    rec.save("running"); return rec
 
 
 def terrain():
@@ -73,10 +76,10 @@ def terrain():
         raw.set_terrain(kind, h, i); rec.terrain_changed(); obs, _ = env.reset(seed=i, options={"terrain": (kind, h), "terrain_seed": i, "yaw": 0.0})
         for t in range(700):
             raw.command = np.array([0.6, raw.command[1]]); obs[-4:-2] = raw.command; obs, r, term, trunc, info = env.step(model.predict(obs, deterministic=True)[0]); raw.command[0] = 0.6; obs[-4:-2] = raw.command
-            rec.grab("Skill 4: blind terrain walking (no camera, proprioception only)", f"{label}   x = {raw.data.qpos[0]:.1f} m (goal 6 m)", every=7)
+            rec.grab("Skill 4: blind terrain walking (proprioception only), time-lapse x3.5", f"{label}   x = {raw.data.qpos[0]:.1f} m (goal 6 m)", every=7)
             if term or raw.data.qpos[0] >= 6.0: break
         print(f"  {label}: ended x = {raw.data.qpos[0]:.2f} m, fell = {bool(term)}", flush=True)
-    rec.save("terrain")
+    rec.save("terrain", speed=3.5); return rec
 
 
 def stepover():
@@ -86,10 +89,10 @@ def stepover():
         raw.set_terrain("hurdle", h, 2000 + i); rec.terrain_changed(); obs, _ = env.reset(seed=2000 + i, options={"terrain": ("hurdle", h), "terrain_seed": 2000 + i, "yaw": 0.0})
         for t in range(300):
             obs, r, term, trunc, info = env.step(model.predict(obs, deterministic=True)[0])
-            rec.grab("Skill 5: step over a bar while running (terrain scan + PPO), slow motion x2", f"bar height {h * 100:g} cm at x = 5 m   x = {raw.data.qpos[0]:.1f} m   speed {info['vx']:.2f} m/s", every=3)
+            rec.grab("Skill 5: step over a bar while running (terrain scan + PPO), slow motion x2", f"bar height {h * 100:g} cm at x = 5 m   x = {raw.data.qpos[0]:.1f} m   speed {info['vx']:.2f} m/s", every=2)
             if term or trunc or raw.data.qpos[0] > 6.6: break
         print(f"  bar {h*100:g} cm: ended x = {raw.data.qpos[0]:.2f} m, hit/fell = {bool(term)}", flush=True)
-    rec.save("stepover")
+    rec.save("stepover", speed=0.5); return rec
 
 
 if __name__ == "__main__":
