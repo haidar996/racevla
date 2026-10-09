@@ -1,0 +1,23 @@
+Race results: 40 courses of 4 sections, hint = oracle.
+
+- finished: **92 %** (37 / 40)
+- mean time of the finishers: 28.5 s (course lengths 20-30 m)
+- sections passed on average: 3.77 of 4
+- endings: finished 37, fell 1, left course 0, stuck 2, timeout 0
+
+Where the unfinished races ended (the section the robot was on or heading into):
+
+| section | races ended there |
+|---|---|
+| rough | 0 |
+| slope_up | 0 |
+| slope_down | 0 |
+| stairs_up | 2 |
+| stairs_down | 0 |
+| bar | 1 |
+| after_last | 0 |
+
+Sections passed (number of races): 0: 2, 1: 0, 2: 0, 3: 1, 4: 37
+seed 4005 fell (tilt) skill terrain x 19.1 / 24.1  layout bar:0.05 stairs_up:0.04 rough:0.06 stairs_up:0.04  passed 3  switches te@385 ste>run@493 run>ter@519 ter>run@724 run>ter@783 ter>run@1113 run>ter@1171
+seed 4016 stuck (no_progress) skill run x 0.0 / 30.0  layout stairs_up:0.03 rough:0.06 slope_up:9 slope_down:9  passed 0  switches sta>wal@26 wal>run@55
+seed 4038 stuck (no_progress) skill run x 0.1 / 24.2  layout bar:0.03 slope_up:9 slope_down:9 bar:0.03  passed 0  switches sta>wal@26 wal>run@54

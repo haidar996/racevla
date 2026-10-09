@@ -1,0 +1,38 @@
+Race results: 40 courses of 4 sections, hint = vision (smoothed: a new group must be asked for 25 steps in a row; the bar enters at once).
+
+- finished: **58 %** (23 / 40)
+- mean time of the finishers: 29.8 s (course lengths 20-30 m)
+- sections passed on average: 3.05 of 4
+- endings: finished 23, fell 6, left course 8, stuck 3, timeout 0
+- hint agrees with the oracle (flat / terrain / bar) on 44 % of steps
+
+Where the unfinished races ended (the section the robot was on or heading into):
+
+| section | races ended there |
+|---|---|
+| rough | 2 |
+| slope_up | 6 |
+| slope_down | 1 |
+| stairs_up | 8 |
+| stairs_down | 0 |
+| bar | 0 |
+| after_last | 0 |
+
+Sections passed (number of races): 0: 2, 1: 6, 2: 3, 3: 6, 4: 23
+seed 4000 left course (left_course) skill run x 15.7 / 24.1  layout bar:0.03 rough:0.04 stairs_up:0.04 stairs_up:0.04  passed 2  switches >wal@426 wal>ter@452 ter>run@603 run>ste@629 ste>wal@655 wal>ter@681 ter>run@772
+seed 4004 left course (left_course) skill stepover x 22.8 / 26.1  layout rough:0.06 bar:0.05 slope_up:9 stairs_up:0.04  passed 3  switches 768 wal>ter@794 ter>run@1208 run>ste@1234 ste>wal@1317 wal>run@1388 run>ste@1414
+seed 4005 left course (left_course) skill run x 20.1 / 24.1  layout bar:0.05 stairs_up:0.04 rough:0.06 stairs_up:0.04  passed 3  switches 04 run>ter@1243 ter>run@1269 run>ste@1295 ste>wal@1394 wal>ter@1420 ter>run@1478
+seed 4007 left course (left_course) skill terrain x 21.6 / 28.0  layout stairs_up:0.04 rough:0.04 stairs_down:0.04 slope_up:9  passed 3  switches @424 ste>wal@792 wal>ter@818 ter>run@1126 run>ste@1152 ste>wal@1234 wal>ter@1260
+seed 4015 fell (tilt) skill stepover x 12.9 / 26.1  layout slope_up:9 rough:0.06 bar:0.05 stairs_down:0.06  passed 1  switches sta>wal@26 wal>run@56 run>ter@82 ter>run@537 run>ste@563
+seed 4018 fell (tilt) skill stepover x 19.2 / 30.0  layout slope_up:15 slope_down:15 slope_up:9 stairs_up:0.04  passed 2  switches 701 run>ter@734 ter>run@1186 run>ste@1212 ste>wal@1259 wal>run@1286 run>ste@1312
+seed 4019 left course (left_course) skill terrain x 17.4 / 22.1  layout stairs_up:0.04 bar:0.05 stairs_up:0.04 stairs_up:0.03  passed 3  switches >ste@408 ste>wal@494 wal>ter@520 ter>run@621 run>ste@647 ste>wal@712 wal>ter@738
+seed 4020 stuck (no_progress) skill terrain x 7.9 / 28.1  layout bar:0.05 slope_up:15 rough:0.04 rough:0.06  passed 1  switches n>ste@78 ste>wal@172 wal>ter@198 ter>run@468 run>ste@494 ste>wal@593 wal>ter@619
+seed 4021 fell (tilt) skill terrain x 8.0 / 28.1  layout bar:0.05 slope_up:15 slope_down:15 slope_up:15  passed 1  switches >ter@199 ter>run@472 run>ste@498 ste>wal@615 wal>ter@649 ter>run@677 run>ter@703
+seed 4022 fell (tilt) skill run x 5.4 / 28.1  layout slope_up:15 slope_down:9 slope_up:9 bar:0.03  passed 0  switches >ste@393 ste>wal@434 wal>run@481 run>ste@507 ste>wal@533 wal>ter@559 ter>run@634
+seed 4023 left course (left_course) skill terrain x 5.2 / 26.1  layout bar:0.05 slope_up:9 stairs_down:0.04 rough:0.04  passed 1  switches sta>wal@26 wal>run@52 run>ste@78 ste>wal@235 wal>ter@261
+seed 4025 stuck (no_progress) skill terrain x 10.5 / 24.1  layout stairs_up:0.04 stairs_up:0.04 rough:0.06 bar:0.03  passed 1  switches sta>ter@26 ter>run@713 run>ste@739 ste>wal@795 wal>ter@821
+seed 4033 fell (tilt) skill run x 8.5 / 30.0  layout rough:0.06 stairs_up:0.04 rough:0.06 rough:0.06  passed 1  switches >wal@437 wal>ter@463 ter>run@489 run>ste@515 ste>wal@541 wal>ter@567 ter>run@665
+seed 4034 fell (tilt) skill run x 22.9 / 28.0  layout stairs_up:0.03 rough:0.04 rough:0.04 stairs_up:0.04  passed 3  switches 858 wal>ter@884 ter>run@1146 run>ste@1172 ste>wal@1227 wal>ter@1255 ter>run@1405
+seed 4036 left course (left_course) skill terrain x 15.5 / 22.2  layout bar:0.03 rough:0.04 bar:0.05 stairs_up:0.03  passed 3  switches sta>wal@26 wal>run@52 run>ste@78 ste>wal@469 wal>ter@495
+seed 4037 stuck (no_progress) skill terrain x 5.3 / 30.0  layout rough:0.06 rough:0.04 slope_up:15 stairs_up:0.03  passed 0  switches n>ste@79 ste>wal@241 wal>ter@267 ter>run@293 run>ste@319 ste>wal@411 wal>ter@454
+seed 4038 left course (left_course) skill terrain x 11.6 / 24.2  layout bar:0.03 slope_up:9 slope_down:9 bar:0.03  passed 2  switches >wal@542 wal>run@573 run>ter@599 ter>run@714 run>ste@740 ste>wal@789 wal>ter@815

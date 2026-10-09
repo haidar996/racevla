@@ -4,7 +4,7 @@ Every experiment behind the released skills, in the order they were run, **inclu
 
 Conventions: PPO / SAC / TD3 from Stable-Baselines3, 4 CPU environments, 50 Hz policy; "falls /N" = episodes with a fall out of N evaluation episodes (deterministic policy); success = the rule given per phase. Counts from different evaluation sets are not directly comparable, the set size is always stated.
 
-Contents: [Phase 3](#phase-3--standing-and-push-recovery) · [Phase 4](#phase-4--walking) · [Phase 5](#phase-5--running) · [Phase 6](#phase-6--terrain) · [Phase 7](#phase-7--obstacles-and-recovery) · [Dropped](#dropped-experiments-negative-results) · [Lessons](#lessons-that-held-across-phases)
+Contents: [Phase 3](#phase-3-standing-and-push-recovery) · [Phase 4](#phase-4-walking) · [Phase 5](#phase-5-running) · [Phase 6](#phase-6-terrain) · [Phase 7](#phase-7-obstacles-and-recovery) · [Skill switching](#skill-switching-phase-7-stages-1-4) · [Vision](#phase-10-vision) · [Race](#phase-8-race-course) · [Dropped](#dropped-experiments-negative-results) · [Lessons](#lessons-that-held-across-phases)
 
 ---
 
@@ -79,6 +79,44 @@ Generator: 4 cm height field (rough ≤ 10 cm, slopes ±3-15°, stairs 2-15 cm, 
 
 **Recovery from a bad start** (paused on purpose: a race does not need a full get-up). `rec1_4M_seed0`: baseline "go to the home pose" succeeds 97 / 69 / 45 % for the three start classes; the first run learned to flip on purpose (additive penalties), after the fix PPO's noise collapsed and success stayed at baseline, so the skill was paused.
 
+## Skill switching (Phase 7, stages 1-4)
+
+Task: one supervisor hands control between the five skills while the robot keeps moving. Design, rules and every table: [`../docs/skill_switching.md`](../docs/skill_switching.md). Raw output: [`skills/switching_transitions.log`](skills/switching_transitions.log), [`skills/switching_patch_trials.log`](skills/switching_patch_trials.log), tables in [`../outputs/analysis/switching*`](../outputs/analysis).
+
+| Experiment | Result | Takeaway |
+|---|---|---|
+| Stage 1: flat hand-overs stand / walk / run, 50 episodes each | all pairs 0 falls except **run → stand: 20 / 50** (warm-up 0), **39 / 50** (warm-up 10) | the stand warm-up makes it worse; falls within 0.3-0.5 s |
+| Stage 2: run → stand through a walk brake | walk told to stop (0.0): 16-20 / 50 falls; **walk told 0.4 m/s until < 0.6 m/s: 0 / 50** (also 2 / 150 on fresh seeds) | a walk policy told to *stop* from running speed falls like stand; told to walk slowly it brakes safely |
+| Stage 3: rule supervisor, random schedules | first test 3 / 300 falls, fixed with a 0.4 m/s command floor → 0 / 300; **fresh seeds 2 / 450** | the brake itself still tips about 1 in 150 at about 2.4 m/s; targets reached 97-99 % |
+| Stage 4b: terrain and step-over hand-overs | 0 falls except walk → step-over 1 / 50 and **step-over → stand 5 / 50** | step-over → stand needs the brake route like run |
+| Stage 4c: one-patch trials, oracle hint (20 per cell) | supervisor = terrain-only on terrain patches (both 100 % except rough 10 cm 75 / 65 %), walk-only 0 % on slope up 15°; bars: 85 / 80 / 50 / 30 % at 3 / 5 / 7 / 10 cm | switching helps against the plain walk policy, not against the terrain skill; failures at the bar are mostly "stuck", not falls |
+
+## Phase 10: vision
+
+Task: replace the simulator's height scan and the oracle terrain hint with an onboard depth camera, an elevation map and a learned classifier. Details and every table: [`../docs/vision.md`](../docs/vision.md). Raw logs in [`skills/`](skills) (`vision_round*_*.log`), tables in [`../outputs/analysis/vision/`](../outputs/analysis/vision), data (git-ignored) in `data/vision{,2,3}`.
+
+| Experiment | Result | Takeaway |
+|---|---|---|
+| V1: camera on the trunk | works; a stale-terrain bug found (the renderer uploads the height field once) | re-upload after each terrain change |
+| V2: elevation map from depth (no training), bar trials 40 per cell | map RMS 0.5-2.3 cm; bar success camera vs simulator: 90 / 85 / 50 / 22 % vs 92 / 85 / 62 / 30 % at 3 / 5 / 7 / 10 cm; 96 x 72 pixels no better | the camera map is about as good up to 5 cm |
+| V3 round 1: CNN, bars always run, others walked | test frames 83.1 %; closed loop 68 % (oracle 84 %) | **inflated**: the network used "running = bar" as a shortcut |
+| V3 round 2: every kind walked and run | test frames 69.4 % (running frames 52 %); closed loop 66 % | honest number; a single frame is weak while running |
+| V3 round 3: + body gravity vector as input | test frames **73.4 %**; closed loop **73 %** (vote of 5: 74 %) | best; the bar and rough 10 cm remain weak |
+
+## Phase 8: race course
+
+Task: the supervisor drives a random 4-section course (20-30 m) from standing to a finish line. Details: [`../docs/race.md`](../docs/race.md). Raw logs: [`race/`](race), tables in [`../outputs/analysis/race/`](../outputs/analysis/race).
+
+| Experiment | Result (40 courses, seeds 4000-4039) | Takeaway |
+|---|---|---|
+| Oracle hint | **92 %** finished, 28.5 s mean, 1 fall / 2 stuck | the supervisor and skills are fine with a correct hint |
+| Vision hint | **58 %** finished (8 falls, 6 left the course, 3 stuck) | the single-patch result (73 %) does not carry over |
+| Vision hint smoothed over 10 / 25 steps | 62 % / 58 % | **no gain**: the hint flickering was not the cause |
+| Per-step diagnosis of the classifier in races | flat truth called flat only **12 %** of the time; flat floor is called "flat" 82 % of the time within 0.2 m of the centre line but only 8 % at 0.6-0.8 m off it | **root cause**: sideways drift shows the camera the side edge of the 3 m wide field (a "drop"); training never saw it |
+| Probe with a perfectly level standing robot | said "stairs down" everywhere | not informative (out-of-distribution pose), kept as a record |
+
+**Not done:** centre the robot on the course; retrain the classifier with sideways and heading offsets; a wider field.
+
 ## Dropped experiments (negative results)
 
 - **Standing-start RL jump** (literature recipe: projectile-densified reward, reference state initialisation, vertical → forward → obstacle curriculum, 5 Hz filtered actions). Run 1 hopped repeatedly to farm the in-flight reward (my design flaw; the literature gives one jump per episode). Run 2 with one jump per episode took off to the right height (7-12 cm apex vs a 10 cm target in all 8 test episodes) but landed crumpled or tilted (success ≈ 2 % after 1.3M steps, curve flat). Landing terms from the Jumper paper (orientation, desired joint pose, catch landing) were added in a third run that was stopped before producing results. The code was removed from the repository; this is the whole result.
@@ -92,5 +130,9 @@ Generator: 4 cm height field (rough ≤ 10 cm, slopes ±3-15°, stairs 2-15 cm, 
 3. Compare on several seeds before drawing conclusions; single-seed differences were often noise (PPO, SAC, terrain, step-over).
 4. Several "failures" were bugs, not learning problems: raw instead of normalised observations, random initial headings in speed measurements, a hit rule that counted the flat floor, a reference that exceeded the leg's reach. Check the environment before tuning the algorithm.
 5. Report the failures: they mark the real limits (7 cm step-over, no tall stairs, no jump).
+6. A learned classifier can use a shortcut: the first terrain classifier scored 83 % because bar episodes were always run (speed gave the answer); it fell to 69 % once both gaits were in every class. Check what correlates with the label besides the thing you want.
+7. Test in the conditions of use: the classifier was good on short single-patch episodes (73 %) and bad on long races (35 % on 7 classes) because the robot drifts sideways there. A result on one setup says little about another.
+8. Keep an oracle baseline: running the same task with the true hint (race: 92 %) showed that the failures were vision, not the supervisor or the skills, and ruled out a long list of other suspects.
+9. Test the first explanation before building on it: smoothing the hint was a cheap fix for a plausible cause and did nothing; only logging every step found the real one.
 
 Reproduce a run: see the exact command in the matching model card in [`../models`](../models) or the script docstring under [`../scripts`](../scripts).

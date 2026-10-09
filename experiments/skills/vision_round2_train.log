@@ -1,0 +1,20 @@
+frames 93173: train 75627 validation 9198 test 8348; class counts (train): flat 39372, rough 9451, slope_up 7185, slope_down 5543, stairs_up 6960, stairs_down 4351, bar 2765
+./scripts/phase10_vision/04_train_classifier.py:44: UserWarning: Converting a tensor with requires_grad=True to a scalar may lead to unexpected behavior.
+Consider using tensor.detach() first. (Triggered internally at /__w/pytorch/pytorch/torch/csrc/autograd/generated/python_variable_methods.cpp:820.)
+  loss = lossf(net(x), y); opt.zero_grad(); loss.backward(); opt.step(); sched.step(); tot += float(loss)
+epoch 1/16 loss 1.432 validation accuracy 0.559 balanced 0.549 (saved) [1.8 min]
+epoch 2/16 loss 1.161 validation accuracy 0.621 balanced 0.590 (saved) [3.6 min]
+epoch 3/16 loss 1.071 validation accuracy 0.630 balanced 0.604 (saved) [5.4 min]
+epoch 4/16 loss 1.006 validation accuracy 0.663 balanced 0.624 (saved) [7.2 min]
+epoch 5/16 loss 0.962 validation accuracy 0.670 balanced 0.636 (saved) [9.0 min]
+epoch 6/16 loss 0.924 validation accuracy 0.679 balanced 0.660 (saved) [10.8 min]
+epoch 7/16 loss 0.890 validation accuracy 0.676 balanced 0.660 (saved) [12.6 min]
+epoch 8/16 loss 0.864 validation accuracy 0.690 balanced 0.655  [14.4 min]
+epoch 9/16 loss 0.834 validation accuracy 0.691 balanced 0.670 (saved) [16.2 min]
+epoch 10/16 loss 0.814 validation accuracy 0.689 balanced 0.669  [18.0 min]
+epoch 11/16 loss 0.794 validation accuracy 0.697 balanced 0.681 (saved) [19.8 min]
+epoch 12/16 loss 0.778 validation accuracy 0.703 balanced 0.686 (saved) [21.6 min]
+epoch 13/16 loss 0.769 validation accuracy 0.704 balanced 0.679  [23.4 min]
+epoch 14/16 loss 0.762 validation accuracy 0.709 balanced 0.689 (saved) [25.2 min]
+epoch 15/16 loss 0.749 validation accuracy 0.706 balanced 0.690 (saved) [27.0 min]
+epoch 16/16 loss 0.752 validation accuracy 0.707 balanced 0.689  [28.8 min]

@@ -1,0 +1,11 @@
+stand -> walk                n= 50 falls=  0 never_settled=  0 settle median 0.62s p90 0.66s peak tilt 8.2 deg  (fell during A: 0)
+walk -> stand (warm-up 0)    n= 50 falls=  0 never_settled=  0 settle median 0.32s p90 0.51s peak tilt 9.8 deg  (fell during A: 0)
+walk -> stand (warm-up 10)   n= 50 falls=  0 never_settled=  0 settle median 0.40s p90 0.46s peak tilt 8.5 deg  (fell during A: 0)
+walk -> run                  n= 50 falls=  0 never_settled=  0 settle median 0.43s p90 0.64s peak tilt 9.2 deg  (fell during A: 0)
+run -> walk                  n= 50 falls=  0 never_settled=  0 settle median 0.72s p90 0.98s peak tilt 13.1 deg  (fell during A: 0)
+run -> stand (warm-up 0)     n= 50 falls= 20 never_settled=  0 settle median 0.93s p90 1.43s peak tilt 35.6 deg  (fell during A: 0)
+run -> stand (warm-up 10)    n= 50 falls= 39 never_settled=  0 settle median 1.04s p90 1.44s peak tilt 55.2 deg  (fell during A: 0)
+stand -> stand (warm-up 0)   n= 50 falls=  0 never_settled=  0 settle median 0.00s p90 0.00s peak tilt 7.8 deg  (fell during A: 0)
+walk -> walk                 n= 50 falls=  0 never_settled=  0 settle median 0.00s p90 0.00s peak tilt 3.8 deg  (fell during A: 0)
+run -> run                   n= 50 falls=  0 never_settled=  0 settle median 0.00s p90 0.00s peak tilt 5.6 deg  (fell during A: 0)
+saved ./outputs/analysis/switching

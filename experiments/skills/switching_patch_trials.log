@@ -1,0 +1,52 @@
+| patch | supervisor | walk only | terrain only |
+|---|---|---|---|
+| rough 0.06 | 100 % (falls 0) | 100 % (falls 0) | 100 % (falls 0) |
+| rough 0.1 | 75 % (falls 4) | 45 % (falls 7) | 65 % (falls 7) |
+| slope_up 9 | 100 % (falls 0) | 60 % (falls 0) | 100 % (falls 0) |
+| slope_up 15 | 100 % (falls 0) | 0 % (falls 20) | 100 % (falls 0) |
+| slope_down 15 | 100 % (falls 0) | 100 % (falls 0) | 100 % (falls 0) |
+| stairs_up 0.04 | 100 % (falls 0) | 100 % (falls 0) | 100 % (falls 0) |
+| stairs_down 0.06 | 100 % (falls 0) | 100 % (falls 0) | 100 % (falls 0) |
+
+| bar | supervisor | run only | step-over only |
+|---|---|---|---|
+| 3 cm | 85 % (falls 0) | 90 % (falls 0) | 100 % (falls 0) |
+| 5 cm | 80 % (falls 2) | 80 % (falls 1) | 70 % (falls 6) |
+| 7 cm | 50 % (falls 5) | 20 % (falls 6) | 40 % (falls 6) |
+| 10 cm | 30 % (falls 4) | 5 % (falls 12) | 35 % (falls 7) |
+supervisor failed: rough 0.1 seed 3004 (fell tilt) skill terrain x 6.27 switches sta>wal@26 wal>ter@84
+supervisor failed: rough 0.1 seed 3006 (stuck ) skill walk x 7.82 switches sta>wal@26 wal>ter@111 ter>wal@1235
+supervisor failed: rough 0.1 seed 3009 (fell tilt) skill terrain x 2.46 switches sta>wal@26 wal>ter@91
+supervisor failed: rough 0.1 seed 3010 (fell left_course) skill terrain x 6.11 switches sta>wal@26 wal>ter@112
+supervisor failed: rough 0.1 seed 3017 (fell tilt) skill terrain x 0.97 switches sta>wal@26 wal>ter@102
+supervisor failed: hurdle 0.03 seed 3011 (stuck ) skill run x 6.53 switches sta>wal@26 wal>run@55 run>ste@212 ste>run@315
+supervisor failed: hurdle 0.03 seed 3015 (stuck ) skill run x 0.07 switches sta>wal@26 wal>run@54
+supervisor failed: hurdle 0.03 seed 3019 (stuck ) skill run x 7.00 switches sta>wal@26 wal>run@52 run>ste@183 ste>run@291
+supervisor failed: hurdle 0.05 seed 3013 (fell hit_hurdle) skill stepover x 5.37 switches sta>wal@26 wal>run@52 run>ste@187
+supervisor failed: hurdle 0.05 seed 3015 (stuck ) skill run x 0.07 switches sta>wal@26 wal>run@54
+supervisor failed: hurdle 0.05 seed 3016 (stuck ) skill run x 6.24 switches sta>wal@26 wal>run@52 run>ste@167 ste>run@342 run>ste@368 ste>run@394
+supervisor failed: hurdle 0.05 seed 3019 (fell hit_hurdle) skill stepover x 5.34 switches sta>wal@26 wal>run@52 run>ste@183
+supervisor failed: hurdle 0.07 seed 3001 (stuck ) skill stepover x 5.19 switches sta>wal@26 wal>run@55 run>ste@447
+supervisor failed: hurdle 0.07 seed 3002 (fell trunk_contact) skill stepover x 5.58 switches sta>wal@26 wal>run@53 run>ste@187
+supervisor failed: hurdle 0.07 seed 3005 (fell hit_hurdle) skill stepover x 5.39 switches sta>wal@26 wal>run@52 run>ste@185
+supervisor failed: hurdle 0.07 seed 3008 (fell hit_hurdle) skill stepover x 5.39 switches sta>wal@26 wal>run@52 run>ste@163
+supervisor failed: hurdle 0.07 seed 3009 (fell tilt) skill stepover x 5.60 switches sta>wal@26 wal>run@56 run>ste@172
+supervisor failed: hurdle 0.07 seed 3012 (stuck ) skill stepover x 5.14 switches sta>wal@26 wal>run@56 run>ste@189
+supervisor failed: hurdle 0.07 seed 3015 (stuck ) skill run x 0.07 switches sta>wal@26 wal>run@54
+supervisor failed: hurdle 0.07 seed 3016 (stuck ) skill stepover x 5.19 switches sta>wal@26 wal>run@52 run>ste@167
+supervisor failed: hurdle 0.07 seed 3018 (stuck ) skill stepover x 5.04 switches sta>wal@26 wal>run@52 run>ste@172
+supervisor failed: hurdle 0.07 seed 3019 (fell tilt) skill stepover x 4.63 switches sta>wal@26 wal>run@52 run>ste@183
+supervisor failed: hurdle 0.1 seed 3001 (fell tilt) skill stepover x 5.57 switches sta>wal@26 wal>run@55 run>ste@447
+supervisor failed: hurdle 0.1 seed 3002 (stuck ) skill stepover x 5.14 switches sta>wal@26 wal>run@53 run>ste@187
+supervisor failed: hurdle 0.1 seed 3003 (stuck ) skill stepover x 5.03 switches sta>wal@26 wal>run@52 run>ste@195
+supervisor failed: hurdle 0.1 seed 3004 (stuck ) skill stepover x 4.99 switches sta>wal@26 wal>run@52 run>ste@165
+supervisor failed: hurdle 0.1 seed 3005 (stuck ) skill stepover x 5.02 switches sta>wal@26 wal>run@52 run>ste@185
+supervisor failed: hurdle 0.1 seed 3006 (fell tilt) skill stepover x 5.18 switches sta>wal@26 wal>run@52 run>ste@193
+supervisor failed: hurdle 0.1 seed 3007 (stuck ) skill stepover x 5.19 switches sta>wal@26 wal>run@52 run>ste@177
+supervisor failed: hurdle 0.1 seed 3010 (fell hit_hurdle) skill stepover x 5.00 switches sta>wal@26 wal>run@55 run>ste@190
+supervisor failed: hurdle 0.1 seed 3011 (stuck ) skill stepover x 5.25 switches sta>wal@26 wal>run@55 run>ste@212
+supervisor failed: hurdle 0.1 seed 3012 (stuck ) skill stepover x 5.02 switches sta>wal@26 wal>run@56 run>ste@189
+supervisor failed: hurdle 0.1 seed 3015 (stuck ) skill run x 0.07 switches sta>wal@26 wal>run@54
+supervisor failed: hurdle 0.1 seed 3017 (stuck ) skill stepover x 5.22 switches sta>wal@26 wal>run@58 run>ste@185
+supervisor failed: hurdle 0.1 seed 3018 (stuck ) skill stepover x 5.16 switches sta>wal@26 wal>run@52 run>ste@172
+supervisor failed: hurdle 0.1 seed 3019 (fell tilt) skill stepover x 5.21 switches sta>wal@26 wal>run@52 run>ste@183

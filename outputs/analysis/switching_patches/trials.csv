@@ -1,0 +1,661 @@
+cmd,edges,fall_skill,fall_x,fell,final_skill,final_x,kind,left,level,n_switches,policy,reason,seed,stuck,success
+0.4873030873840089,sta>wal@26 wal>ter@91 ter>wal@824,,0.0,False,walk,8.002389117855516,rough,False,0.06,3,supervisor,,3000,False,True
+0.58354030411368,sta>wal@26 wal>ter@83 ter>wal@703,,0.0,False,walk,8.004767065155798,rough,False,0.06,3,supervisor,,3001,False,True
+0.42968038737115555,sta>wal@26 wal>ter@111 ter>wal@920,,0.0,False,walk,8.004819475301163,rough,False,0.06,3,supervisor,,3002,False,True
+0.4124537200178661,sta>wal@26 wal>ter@123 ter>wal@961,,0.0,False,walk,8.007655804914414,rough,False,0.06,3,supervisor,,3003,False,True
+0.57029833678748,sta>wal@26 wal>ter@84 ter>wal@726,,0.0,False,walk,8.002067339893475,rough,False,0.06,3,supervisor,,3004,False,True
+0.41916805894933984,sta>wal@26 wal>ter@104 ter>wal@945,,0.0,False,walk,8.003454243153215,rough,False,0.06,3,supervisor,,3005,False,True
+0.40676286337661144,sta>wal@26 wal>ter@111 ter>wal@973,,0.0,False,walk,8.00314911678622,rough,False,0.06,3,supervisor,,3006,False,True
+0.4892212485874742,sta>wal@26 wal>ter@94 ter>wal@822,,0.0,False,walk,8.007312457701094,rough,False,0.06,3,supervisor,,3007,False,True
+0.5666482075486095,sta>wal@26 wal>ter@78 ter>wal@719,,0.0,False,walk,8.009279367923043,rough,False,0.06,3,supervisor,,3008,False,True
+0.5662278371986416,sta>wal@26 wal>ter@91 ter>wal@734,,0.0,False,walk,8.006861826919694,rough,False,0.06,3,supervisor,,3009,False,True
+0.4240689300926905,sta>wal@26 wal>ter@112 ter>wal@948,,0.0,False,walk,8.005583620266377,rough,False,0.06,3,supervisor,,3010,False,True
+0.5694011472130832,sta>wal@26 wal>ter@81 ter>wal@721,,0.0,False,walk,8.002686352111315,rough,False,0.06,3,supervisor,,3011,False,True
+0.4370819564262508,sta>wal@26 wal>ter@111 ter>wal@918,,0.0,False,walk,8.000086887827974,rough,False,0.06,3,supervisor,,3012,False,True
+0.4140319352903917,sta>wal@26 wal>ter@102 ter>wal@945,,0.0,False,walk,8.003497425704316,rough,False,0.06,3,supervisor,,3013,False,True
+0.5188244536184856,sta>wal@26 wal>ter@79 ter>wal@785,,0.0,False,walk,8.003145522648936,rough,False,0.06,3,supervisor,,3014,False,True
+0.41460179945104897,sta>wal@26 wal>ter@109 ter>wal@956,,0.0,False,walk,8.005164103985075,rough,False,0.06,3,supervisor,,3015,False,True
+0.5587308036953218,sta>wal@26 wal>ter@88 ter>wal@744,,0.0,False,walk,8.003935204616331,rough,False,0.06,3,supervisor,,3016,False,True
+0.46856212249172247,sta>wal@26 wal>ter@102 ter>wal@862,,0.0,False,walk,8.001364209979469,rough,False,0.06,3,supervisor,,3017,False,True
+0.49165125850439584,sta>wal@26 wal>ter@84 ter>wal@827,,0.0,False,walk,8.004168842287987,rough,False,0.06,3,supervisor,,3018,False,True
+0.4900570683584992,sta>wal@26 wal>ter@105 ter>wal@832,,0.0,False,walk,8.007029314227346,rough,False,0.06,3,supervisor,,3019,False,True
+0.4873030873840089,,,0.0,False,walk,8.004637245387073,rough,False,0.06,,walk,,3000,False,True
+0.58354030411368,,,0.0,False,walk,8.005373380802395,rough,False,0.06,,walk,,3001,False,True
+0.42968038737115555,,,0.0,False,walk,8.002053149455294,rough,False,0.06,,walk,,3002,False,True
+0.4124537200178661,,,0.0,False,walk,8.006542000678385,rough,False,0.06,,walk,,3003,False,True
+0.57029833678748,,,0.0,False,walk,8.00582384350398,rough,False,0.06,,walk,,3004,False,True
+0.41916805894933984,,,0.0,False,walk,8.001473487542619,rough,False,0.06,,walk,,3005,False,True
+0.40676286337661144,,,0.0,False,walk,8.000963524619944,rough,False,0.06,,walk,,3006,False,True
+0.4892212485874742,,,0.0,False,walk,8.00397468164205,rough,False,0.06,,walk,,3007,False,True
+0.5666482075486095,,,0.0,False,walk,8.004687196491027,rough,False,0.06,,walk,,3008,False,True
+0.5662278371986416,,,0.0,False,walk,8.007646824181366,rough,False,0.06,,walk,,3009,False,True
+0.4240689300926905,,,0.0,False,walk,8.005848076265432,rough,False,0.06,,walk,,3010,False,True
+0.5694011472130832,,,0.0,False,walk,8.009329335365006,rough,False,0.06,,walk,,3011,False,True
+0.4370819564262508,,,0.0,False,walk,8.00485348251273,rough,False,0.06,,walk,,3012,False,True
+0.4140319352903917,,,0.0,False,walk,8.005600932769005,rough,False,0.06,,walk,,3013,False,True
+0.5188244536184856,,,0.0,False,walk,8.003470412480548,rough,False,0.06,,walk,,3014,False,True
+0.41460179945104897,,,0.0,False,walk,8.001084604587517,rough,False,0.06,,walk,,3015,False,True
+0.5587308036953218,,,0.0,False,walk,8.000361748839127,rough,False,0.06,,walk,,3016,False,True
+0.46856212249172247,,,0.0,False,walk,8.006276417435737,rough,False,0.06,,walk,,3017,False,True
+0.49165125850439584,,,0.0,False,walk,8.00692087920351,rough,False,0.06,,walk,,3018,False,True
+0.4900570683584992,,,0.0,False,walk,8.00199091381692,rough,False,0.06,,walk,,3019,False,True
+0.4873030873840089,,,0.0,False,terrain,8.008954758085565,rough,False,0.06,,terrain,,3000,False,True
+0.58354030411368,,,0.0,False,terrain,8.000820880640937,rough,False,0.06,,terrain,,3001,False,True
+0.42968038737115555,,,0.0,False,terrain,8.002362559738456,rough,False,0.06,,terrain,,3002,False,True
+0.4124537200178661,,,0.0,False,terrain,8.000432266550382,rough,False,0.06,,terrain,,3003,False,True
+0.57029833678748,,,0.0,False,terrain,8.003898247794357,rough,False,0.06,,terrain,,3004,False,True
+0.41916805894933984,,,0.0,False,terrain,8.00245251859764,rough,False,0.06,,terrain,,3005,False,True
+0.40676286337661144,,,0.0,False,terrain,8.006277948182753,rough,False,0.06,,terrain,,3006,False,True
+0.4892212485874742,,,0.0,False,terrain,8.005419826142443,rough,False,0.06,,terrain,,3007,False,True
+0.5666482075486095,,,0.0,False,terrain,8.007014238862808,rough,False,0.06,,terrain,,3008,False,True
+0.5662278371986416,,,0.0,False,terrain,8.004374595690932,rough,False,0.06,,terrain,,3009,False,True
+0.4240689300926905,,,0.0,False,terrain,8.005671262411548,rough,False,0.06,,terrain,,3010,False,True
+0.5694011472130832,,,0.0,False,terrain,8.002235205260247,rough,False,0.06,,terrain,,3011,False,True
+0.4370819564262508,,,0.0,False,terrain,8.000077151871748,rough,False,0.06,,terrain,,3012,False,True
+0.4140319352903917,,,0.0,False,terrain,8.007414089928242,rough,False,0.06,,terrain,,3013,False,True
+0.5188244536184856,,,0.0,False,terrain,8.005773240084856,rough,False,0.06,,terrain,,3014,False,True
+0.41460179945104897,,,0.0,False,terrain,8.004792070201805,rough,False,0.06,,terrain,,3015,False,True
+0.5587308036953218,,,0.0,False,terrain,8.007029121638492,rough,False,0.06,,terrain,,3016,False,True
+0.46856212249172247,,,0.0,False,terrain,8.006713430068057,rough,False,0.06,,terrain,,3017,False,True
+0.49165125850439584,,,0.0,False,terrain,8.007188677514616,rough,False,0.06,,terrain,,3018,False,True
+0.4900570683584992,,,0.0,False,terrain,8.009346613550102,rough,False,0.06,,terrain,,3019,False,True
+0.4873030873840089,sta>wal@26 wal>ter@91 ter>wal@907,,0.0,False,walk,8.00667214130207,rough,False,0.1,3,supervisor,,3000,False,True
+0.58354030411368,sta>wal@26 wal>ter@83 ter>wal@793,,0.0,False,walk,8.011238979310287,rough,False,0.1,3,supervisor,,3001,False,True
+0.42968038737115555,sta>wal@26 wal>ter@111 ter>wal@1052,,0.0,False,walk,8.004172747987553,rough,False,0.1,3,supervisor,,3002,False,True
+0.4124537200178661,sta>wal@26 wal>ter@123 ter>wal@1083,,0.0,False,walk,8.002050326143362,rough,False,0.1,3,supervisor,,3003,False,True
+0.57029833678748,sta>wal@26 wal>ter@84,terrain,6.270822933779887,True,terrain,6.270822933779887,rough,False,0.1,2,supervisor,tilt,3004,False,False
+0.41916805894933984,sta>wal@26 wal>ter@104 ter>wal@1026,,0.0,False,walk,8.004557697887156,rough,False,0.1,3,supervisor,,3005,False,True
+0.40676286337661144,sta>wal@26 wal>ter@111 ter>wal@1235,,0.0,False,walk,7.816258355798844,rough,False,0.1,3,supervisor,,3006,True,False
+0.4892212485874742,sta>wal@26 wal>ter@94 ter>wal@971,,0.0,False,walk,8.004276913975394,rough,False,0.1,3,supervisor,,3007,False,True
+0.5666482075486095,sta>wal@26 wal>ter@78 ter>wal@917,,0.0,False,walk,8.01075338369201,rough,False,0.1,3,supervisor,,3008,False,True
+0.5662278371986416,sta>wal@26 wal>ter@91,terrain,2.4584722069647977,True,terrain,2.4584722069647977,rough,False,0.1,2,supervisor,tilt,3009,False,False
+0.4240689300926905,sta>wal@26 wal>ter@112,terrain,6.106770715740422,True,terrain,6.106770715740422,rough,True,0.1,2,supervisor,left_course,3010,False,False
+0.5694011472130832,sta>wal@26 wal>ter@81 ter>wal@810,,0.0,False,walk,8.001526605393705,rough,False,0.1,3,supervisor,,3011,False,True
+0.4370819564262508,sta>wal@26 wal>ter@111 ter>wal@1007,,0.0,False,walk,8.00846316320355,rough,False,0.1,3,supervisor,,3012,False,True
+0.4140319352903917,sta>wal@26 wal>ter@102 ter>wal@1162,,0.0,False,walk,8.005240998342273,rough,False,0.1,3,supervisor,,3013,False,True
+0.5188244536184856,sta>wal@26 wal>ter@79 ter>wal@880,,0.0,False,walk,8.003414946495473,rough,False,0.1,3,supervisor,,3014,False,True
+0.41460179945104897,sta>wal@26 wal>ter@109 ter>wal@1184,,0.0,False,walk,8.000881141753561,rough,False,0.1,3,supervisor,,3015,False,True
+0.5587308036953218,sta>wal@26 wal>ter@88 ter>wal@839,,0.0,False,walk,8.000749881000887,rough,False,0.1,3,supervisor,,3016,False,True
+0.46856212249172247,sta>wal@26 wal>ter@102,terrain,0.9710681995657399,True,terrain,0.9710681995657399,rough,False,0.1,2,supervisor,tilt,3017,False,False
+0.49165125850439584,sta>wal@26 wal>ter@84 ter>wal@1209,,0.0,False,walk,8.002975829249777,rough,False,0.1,3,supervisor,,3018,False,True
+0.4900570683584992,sta>wal@26 wal>ter@105 ter>wal@954,,0.0,False,walk,8.005789495732172,rough,False,0.1,3,supervisor,,3019,False,True
+0.4873030873840089,,walk,1.6613043474047522,True,walk,1.6613043474047522,rough,False,0.1,,walk,tilt,3000,False,False
+0.58354030411368,,,0.0,False,walk,8.005523153533746,rough,False,0.1,,walk,,3001,False,True
+0.42968038737115555,,,0.0,False,walk,8.002976531563966,rough,False,0.1,,walk,,3002,False,True
+0.4124537200178661,,,0.0,False,walk,6.844094612964026,rough,False,0.1,,walk,,3003,True,False
+0.57029833678748,,,0.0,False,walk,8.004770642776124,rough,False,0.1,,walk,,3004,False,True
+0.41916805894933984,,,0.0,False,walk,7.3836298480517035,rough,False,0.1,,walk,,3005,True,False
+0.40676286337661144,,,0.0,False,walk,6.347069743101635,rough,False,0.1,,walk,,3006,True,False
+0.4892212485874742,,walk,1.0401469709918116,True,walk,1.0401469709918116,rough,False,0.1,,walk,tilt,3007,False,False
+0.5666482075486095,,,0.0,False,walk,8.004827145081299,rough,False,0.1,,walk,,3008,False,True
+0.5662278371986416,,,0.0,False,walk,8.010822661549659,rough,False,0.1,,walk,,3009,False,True
+0.4240689300926905,,,0.0,False,walk,1.1204077718027736,rough,False,0.1,,walk,,3010,True,False
+0.5694011472130832,,,0.0,False,walk,8.003131890447607,rough,False,0.1,,walk,,3011,False,True
+0.4370819564262508,,walk,5.553432523219821,True,walk,5.553432523219821,rough,False,0.1,,walk,tilt,3012,False,False
+0.4140319352903917,,,0.0,False,walk,8.00500911189464,rough,False,0.1,,walk,,3013,False,True
+0.5188244536184856,,,0.0,False,walk,8.005935451909048,rough,False,0.1,,walk,,3014,False,True
+0.41460179945104897,,walk,0.9772348803917211,True,walk,0.9772348803917211,rough,False,0.1,,walk,tilt,3015,False,False
+0.5587308036953218,,walk,1.0184807878397029,True,walk,1.0184807878397029,rough,False,0.1,,walk,tilt,3016,False,False
+0.46856212249172247,,walk,6.727497515651188,True,walk,6.727497515651188,rough,False,0.1,,walk,tilt,3017,False,False
+0.49165125850439584,,walk,2.791281148163442,True,walk,2.791281148163442,rough,False,0.1,,walk,tilt,3018,False,False
+0.4900570683584992,,,0.0,False,walk,8.004386654016171,rough,False,0.1,,walk,,3019,False,True
+0.4873030873840089,,,0.0,False,terrain,8.000531989149799,rough,False,0.1,,terrain,,3000,False,True
+0.58354030411368,,,0.0,False,terrain,8.00612147039953,rough,False,0.1,,terrain,,3001,False,True
+0.42968038737115555,,,0.0,False,terrain,8.001873471256275,rough,False,0.1,,terrain,,3002,False,True
+0.4124537200178661,,terrain,7.040553774574678,True,terrain,7.040553774574678,rough,False,0.1,,terrain,tilt,3003,False,False
+0.57029833678748,,terrain,6.082632298969158,True,terrain,6.082632298969158,rough,False,0.1,,terrain,tilt,3004,False,False
+0.41916805894933984,,,0.0,False,terrain,8.001279268546472,rough,False,0.1,,terrain,,3005,False,True
+0.40676286337661144,,,0.0,False,terrain,8.004266750840335,rough,False,0.1,,terrain,,3006,False,True
+0.4892212485874742,,,0.0,False,terrain,8.004532730715733,rough,False,0.1,,terrain,,3007,False,True
+0.5666482075486095,,terrain,5.825291989645927,True,terrain,5.825291989645927,rough,True,0.1,,terrain,left_course,3008,False,False
+0.5662278371986416,,,0.0,False,terrain,8.000968932355248,rough,False,0.1,,terrain,,3009,False,True
+0.4240689300926905,,,0.0,False,terrain,8.002358322697754,rough,False,0.1,,terrain,,3010,False,True
+0.5694011472130832,,terrain,4.290880447540565,True,terrain,4.290880447540565,rough,False,0.1,,terrain,tilt,3011,False,False
+0.4370819564262508,,,0.0,False,terrain,8.00372357349906,rough,False,0.1,,terrain,,3012,False,True
+0.4140319352903917,,,0.0,False,terrain,8.000507306754963,rough,False,0.1,,terrain,,3013,False,True
+0.5188244536184856,,,0.0,False,terrain,8.009674069926254,rough,False,0.1,,terrain,,3014,False,True
+0.41460179945104897,,terrain,1.5559873769144255,True,terrain,1.5559873769144255,rough,True,0.1,,terrain,left_course,3015,False,False
+0.5587308036953218,,,0.0,False,terrain,8.01054249946589,rough,False,0.1,,terrain,,3016,False,True
+0.46856212249172247,,,0.0,False,terrain,8.003965357933296,rough,False,0.1,,terrain,,3017,False,True
+0.49165125850439584,,terrain,1.057843012693476,True,terrain,1.057843012693476,rough,False,0.1,,terrain,tilt,3018,False,False
+0.4900570683584992,,terrain,5.3276930666883615,True,terrain,5.3276930666883615,rough,False,0.1,,terrain,tilt,3019,False,False
+0.4873030873840089,sta>wal@26 wal>ter@91 ter>wal@608,,0.0,False,walk,8.002176269361303,slope_up,False,9,3,supervisor,,3000,False,True
+0.58354030411368,sta>wal@26 wal>ter@83 ter>wal@529,,0.0,False,walk,8.005652551008342,slope_up,False,9,3,supervisor,,3001,False,True
+0.42968038737115555,sta>wal@26 wal>ter@111 ter>wal@676,,0.0,False,walk,8.001358976928723,slope_up,False,9,3,supervisor,,3002,False,True
+0.4124537200178661,sta>wal@26 wal>ter@123 ter>wal@705,,0.0,False,walk,8.007580419571303,slope_up,False,9,3,supervisor,,3003,False,True
+0.57029833678748,sta>wal@26 wal>ter@84 ter>wal@539,,0.0,False,walk,8.006290009926378,slope_up,False,9,3,supervisor,,3004,False,True
+0.41916805894933984,sta>wal@26 wal>ter@104 ter>wal@683,,0.0,False,walk,8.001832323700881,slope_up,False,9,3,supervisor,,3005,False,True
+0.40676286337661144,sta>wal@26 wal>ter@111 ter>wal@699,,0.0,False,walk,8.000964705209165,slope_up,False,9,3,supervisor,,3006,False,True
+0.4892212485874742,sta>wal@26 wal>ter@94 ter>wal@611,,0.0,False,walk,8.005586830066981,slope_up,False,9,3,supervisor,,3007,False,True
+0.5666482075486095,sta>wal@26 wal>ter@78 ter>wal@532,,0.0,False,walk,8.002296050954543,slope_up,False,9,3,supervisor,,3008,False,True
+0.5662278371986416,sta>wal@26 wal>ter@91 ter>wal@547,,0.0,False,walk,8.006942931219562,slope_up,False,9,3,supervisor,,3009,False,True
+0.4240689300926905,sta>wal@26 wal>ter@112 ter>wal@682,,0.0,False,walk,8.00809229201215,slope_up,False,9,3,supervisor,,3010,False,True
+0.5694011472130832,sta>wal@26 wal>ter@81 ter>wal@535,,0.0,False,walk,8.000136129263504,slope_up,False,9,3,supervisor,,3011,False,True
+0.4370819564262508,sta>wal@26 wal>ter@111 ter>wal@672,,0.0,False,walk,8.005461103055486,slope_up,False,9,3,supervisor,,3012,False,True
+0.4140319352903917,sta>wal@26 wal>ter@102 ter>wal@690,,0.0,False,walk,8.004749863278766,slope_up,False,9,3,supervisor,,3013,False,True
+0.5188244536184856,sta>wal@26 wal>ter@79 ter>wal@572,,0.0,False,walk,8.006222011858034,slope_up,False,9,3,supervisor,,3014,False,True
+0.41460179945104897,sta>wal@26 wal>ter@109 ter>wal@696,,0.0,False,walk,8.00576709905584,slope_up,False,9,3,supervisor,,3015,False,True
+0.5587308036953218,sta>wal@26 wal>ter@88 ter>wal@550,,0.0,False,walk,8.000960801437033,slope_up,False,9,3,supervisor,,3016,False,True
+0.46856212249172247,sta>wal@26 wal>ter@102 ter>wal@630,,0.0,False,walk,8.008445520550978,slope_up,False,9,3,supervisor,,3017,False,True
+0.49165125850439584,sta>wal@26 wal>ter@84 ter>wal@600,,0.0,False,walk,8.008066174989251,slope_up,False,9,3,supervisor,,3018,False,True
+0.4900570683584992,sta>wal@26 wal>ter@105 ter>wal@618,,0.0,False,walk,8.009265972059756,slope_up,False,9,3,supervisor,,3019,False,True
+0.4873030873840089,,,0.0,False,walk,8.001200221331672,slope_up,False,9,,walk,,3000,False,True
+0.58354030411368,,,0.0,False,walk,8.00591430514615,slope_up,False,9,,walk,,3001,False,True
+0.42968038737115555,,,0.0,False,walk,7.443367446616912,slope_up,False,9,,walk,,3002,True,False
+0.4124537200178661,,,0.0,False,walk,6.682029991655986,slope_up,False,9,,walk,,3003,True,False
+0.57029833678748,,,0.0,False,walk,8.008176654578266,slope_up,False,9,,walk,,3004,False,True
+0.41916805894933984,,,0.0,False,walk,6.832579867594235,slope_up,False,9,,walk,,3005,True,False
+0.40676286337661144,,,0.0,False,walk,6.857595345330656,slope_up,False,9,,walk,,3006,True,False
+0.4892212485874742,,,0.0,False,walk,8.002678596869066,slope_up,False,9,,walk,,3007,False,True
+0.5666482075486095,,,0.0,False,walk,8.008193403368209,slope_up,False,9,,walk,,3008,False,True
+0.5662278371986416,,,0.0,False,walk,8.007801928714066,slope_up,False,9,,walk,,3009,False,True
+0.4240689300926905,,,0.0,False,walk,6.8219823062541,slope_up,False,9,,walk,,3010,True,False
+0.5694011472130832,,,0.0,False,walk,8.004034136401799,slope_up,False,9,,walk,,3011,False,True
+0.4370819564262508,,,0.0,False,walk,7.304396611261327,slope_up,False,9,,walk,,3012,True,False
+0.4140319352903917,,,0.0,False,walk,6.878948461533622,slope_up,False,9,,walk,,3013,True,False
+0.5188244536184856,,,0.0,False,walk,8.001855881360685,slope_up,False,9,,walk,,3014,False,True
+0.41460179945104897,,,0.0,False,walk,6.742344306888257,slope_up,False,9,,walk,,3015,True,False
+0.5587308036953218,,,0.0,False,walk,8.002079820150065,slope_up,False,9,,walk,,3016,False,True
+0.46856212249172247,,,0.0,False,walk,8.007822499161506,slope_up,False,9,,walk,,3017,False,True
+0.49165125850439584,,,0.0,False,walk,8.004456411078193,slope_up,False,9,,walk,,3018,False,True
+0.4900570683584992,,,0.0,False,walk,8.007750162169096,slope_up,False,9,,walk,,3019,False,True
+0.4873030873840089,,,0.0,False,terrain,8.002714842873214,slope_up,False,9,,terrain,,3000,False,True
+0.58354030411368,,,0.0,False,terrain,8.005154885047196,slope_up,False,9,,terrain,,3001,False,True
+0.42968038737115555,,,0.0,False,terrain,8.007467475139215,slope_up,False,9,,terrain,,3002,False,True
+0.4124537200178661,,,0.0,False,terrain,8.009114545076534,slope_up,False,9,,terrain,,3003,False,True
+0.57029833678748,,,0.0,False,terrain,8.01086151944634,slope_up,False,9,,terrain,,3004,False,True
+0.41916805894933984,,,0.0,False,terrain,8.002028248166168,slope_up,False,9,,terrain,,3005,False,True
+0.40676286337661144,,,0.0,False,terrain,8.000256780729561,slope_up,False,9,,terrain,,3006,False,True
+0.4892212485874742,,,0.0,False,terrain,8.001106392266697,slope_up,False,9,,terrain,,3007,False,True
+0.5666482075486095,,,0.0,False,terrain,8.005346552197583,slope_up,False,9,,terrain,,3008,False,True
+0.5662278371986416,,,0.0,False,terrain,8.005687154914341,slope_up,False,9,,terrain,,3009,False,True
+0.4240689300926905,,,0.0,False,terrain,8.006188901847056,slope_up,False,9,,terrain,,3010,False,True
+0.5694011472130832,,,0.0,False,terrain,8.007877289327025,slope_up,False,9,,terrain,,3011,False,True
+0.4370819564262508,,,0.0,False,terrain,8.00773020790313,slope_up,False,9,,terrain,,3012,False,True
+0.4140319352903917,,,0.0,False,terrain,8.005586832793684,slope_up,False,9,,terrain,,3013,False,True
+0.5188244536184856,,,0.0,False,terrain,8.00023115095929,slope_up,False,9,,terrain,,3014,False,True
+0.41460179945104897,,,0.0,False,terrain,8.005676473727725,slope_up,False,9,,terrain,,3015,False,True
+0.5587308036953218,,,0.0,False,terrain,8.007902895640438,slope_up,False,9,,terrain,,3016,False,True
+0.46856212249172247,,,0.0,False,terrain,8.005112227032077,slope_up,False,9,,terrain,,3017,False,True
+0.49165125850439584,,,0.0,False,terrain,8.001502319817778,slope_up,False,9,,terrain,,3018,False,True
+0.4900570683584992,,,0.0,False,terrain,8.009074818982983,slope_up,False,9,,terrain,,3019,False,True
+0.4873030873840089,sta>wal@26 wal>ter@91 ter>wal@621,,0.0,False,walk,8.003584794679371,slope_up,False,15,3,supervisor,,3000,False,True
+0.58354030411368,sta>wal@26 wal>ter@83 ter>wal@542,,0.0,False,walk,8.000381545046196,slope_up,False,15,3,supervisor,,3001,False,True
+0.42968038737115555,sta>wal@26 wal>ter@111 ter>wal@690,,0.0,False,walk,8.000212058035348,slope_up,False,15,3,supervisor,,3002,False,True
+0.4124537200178661,sta>wal@26 wal>ter@123 ter>wal@723,,0.0,False,walk,8.001855219428185,slope_up,False,15,3,supervisor,,3003,False,True
+0.57029833678748,sta>wal@26 wal>ter@84 ter>wal@549,,0.0,False,walk,8.001530413062202,slope_up,False,15,3,supervisor,,3004,False,True
+0.41916805894933984,sta>wal@26 wal>ter@104 ter>wal@701,,0.0,False,walk,8.007732937593383,slope_up,False,15,3,supervisor,,3005,False,True
+0.40676286337661144,sta>wal@26 wal>ter@111 ter>wal@713,,0.0,False,walk,8.004422957089984,slope_up,False,15,3,supervisor,,3006,False,True
+0.4892212485874742,sta>wal@26 wal>ter@94 ter>wal@620,,0.0,False,walk,8.00445262430958,slope_up,False,15,3,supervisor,,3007,False,True
+0.5666482075486095,sta>wal@26 wal>ter@78 ter>wal@540,,0.0,False,walk,8.006956342058684,slope_up,False,15,3,supervisor,,3008,False,True
+0.5662278371986416,sta>wal@26 wal>ter@91 ter>wal@556,,0.0,False,walk,8.008567219834944,slope_up,False,15,3,supervisor,,3009,False,True
+0.4240689300926905,sta>wal@26 wal>ter@112 ter>wal@698,,0.0,False,walk,8.000861015377307,slope_up,False,15,3,supervisor,,3010,False,True
+0.5694011472130832,sta>wal@26 wal>ter@81 ter>wal@546,,0.0,False,walk,8.001650188690235,slope_up,False,15,3,supervisor,,3011,False,True
+0.4370819564262508,sta>wal@26 wal>ter@111 ter>wal@690,,0.0,False,walk,8.008157131012153,slope_up,False,15,3,supervisor,,3012,False,True
+0.4140319352903917,sta>wal@26 wal>ter@102 ter>wal@706,,0.0,False,walk,8.001233754196438,slope_up,False,15,3,supervisor,,3013,False,True
+0.5188244536184856,sta>wal@26 wal>ter@79 ter>wal@584,,0.0,False,walk,8.009826476700612,slope_up,False,15,3,supervisor,,3014,False,True
+0.41460179945104897,sta>wal@26 wal>ter@109 ter>wal@713,,0.0,False,walk,8.007511231993902,slope_up,False,15,3,supervisor,,3015,False,True
+0.5587308036953218,sta>wal@26 wal>ter@88 ter>wal@558,,0.0,False,walk,8.000845875650828,slope_up,False,15,3,supervisor,,3016,False,True
+0.46856212249172247,sta>wal@26 wal>ter@102 ter>wal@643,,0.0,False,walk,8.003967329634921,slope_up,False,15,3,supervisor,,3017,False,True
+0.49165125850439584,sta>wal@26 wal>ter@84 ter>wal@610,,0.0,False,walk,8.006218117006656,slope_up,False,15,3,supervisor,,3018,False,True
+0.4900570683584992,sta>wal@26 wal>ter@105 ter>wal@631,,0.0,False,walk,8.002929995905845,slope_up,False,15,3,supervisor,,3019,False,True
+0.4873030873840089,,walk,1.5287148562499253,True,walk,1.5287148562499253,slope_up,False,15,,walk,tilt,3000,False,False
+0.58354030411368,,walk,2.53697030994127,True,walk,2.53697030994127,slope_up,False,15,,walk,tilt,3001,False,False
+0.42968038737115555,,walk,1.8179598964171497,True,walk,1.8179598964171497,slope_up,False,15,,walk,tilt,3002,False,False
+0.4124537200178661,,walk,1.5377332597117934,True,walk,1.5377332597117934,slope_up,False,15,,walk,tilt,3003,False,False
+0.57029833678748,,walk,1.5559692866561485,True,walk,1.5559692866561485,slope_up,False,15,,walk,tilt,3004,False,False
+0.41916805894933984,,walk,1.64856866280951,True,walk,1.64856866280951,slope_up,False,15,,walk,tilt,3005,False,False
+0.40676286337661144,,walk,1.623193001502816,True,walk,1.623193001502816,slope_up,False,15,,walk,tilt,3006,False,False
+0.4892212485874742,,walk,2.2011389080122075,True,walk,2.2011389080122075,slope_up,False,15,,walk,tilt,3007,False,False
+0.5666482075486095,,walk,2.2288932315565244,True,walk,2.2288932315565244,slope_up,False,15,,walk,tilt,3008,False,False
+0.5662278371986416,,walk,1.6149678442500117,True,walk,1.6149678442500117,slope_up,False,15,,walk,tilt,3009,False,False
+0.4240689300926905,,walk,1.9970096364887238,True,walk,1.9970096364887238,slope_up,False,15,,walk,tilt,3010,False,False
+0.5694011472130832,,walk,2.9453619142614755,True,walk,2.9453619142614755,slope_up,False,15,,walk,tilt,3011,False,False
+0.4370819564262508,,walk,1.443402789594732,True,walk,1.443402789594732,slope_up,False,15,,walk,tilt,3012,False,False
+0.4140319352903917,,walk,1.9253071998142284,True,walk,1.9253071998142284,slope_up,False,15,,walk,tilt,3013,False,False
+0.5188244536184856,,walk,1.7461170214490072,True,walk,1.7461170214490072,slope_up,False,15,,walk,tilt,3014,False,False
+0.41460179945104897,,walk,1.8104499266407028,True,walk,1.8104499266407028,slope_up,False,15,,walk,tilt,3015,False,False
+0.5587308036953218,,walk,1.5526629965325212,True,walk,1.5526629965325212,slope_up,False,15,,walk,tilt,3016,False,False
+0.46856212249172247,,walk,1.9162474317011347,True,walk,1.9162474317011347,slope_up,False,15,,walk,tilt,3017,False,False
+0.49165125850439584,,walk,2.1504056303524797,True,walk,2.1504056303524797,slope_up,False,15,,walk,tilt,3018,False,False
+0.4900570683584992,,walk,1.7514118610509106,True,walk,1.7514118610509106,slope_up,False,15,,walk,tilt,3019,False,False
+0.4873030873840089,,,0.0,False,terrain,8.006684945390868,slope_up,False,15,,terrain,,3000,False,True
+0.58354030411368,,,0.0,False,terrain,8.008969320021713,slope_up,False,15,,terrain,,3001,False,True
+0.42968038737115555,,,0.0,False,terrain,8.00524931187194,slope_up,False,15,,terrain,,3002,False,True
+0.4124537200178661,,,0.0,False,terrain,8.00950162495015,slope_up,False,15,,terrain,,3003,False,True
+0.57029833678748,,,0.0,False,terrain,8.000560031581092,slope_up,False,15,,terrain,,3004,False,True
+0.41916805894933984,,,0.0,False,terrain,8.004770117547608,slope_up,False,15,,terrain,,3005,False,True
+0.40676286337661144,,,0.0,False,terrain,8.008836457473231,slope_up,False,15,,terrain,,3006,False,True
+0.4892212485874742,,,0.0,False,terrain,8.006646957387094,slope_up,False,15,,terrain,,3007,False,True
+0.5666482075486095,,,0.0,False,terrain,8.004683278355923,slope_up,False,15,,terrain,,3008,False,True
+0.5662278371986416,,,0.0,False,terrain,8.00272508453386,slope_up,False,15,,terrain,,3009,False,True
+0.4240689300926905,,,0.0,False,terrain,8.00546561096308,slope_up,False,15,,terrain,,3010,False,True
+0.5694011472130832,,,0.0,False,terrain,8.00130745733309,slope_up,False,15,,terrain,,3011,False,True
+0.4370819564262508,,,0.0,False,terrain,8.00256152980284,slope_up,False,15,,terrain,,3012,False,True
+0.4140319352903917,,,0.0,False,terrain,8.008247857058361,slope_up,False,15,,terrain,,3013,False,True
+0.5188244536184856,,,0.0,False,terrain,8.008686826630177,slope_up,False,15,,terrain,,3014,False,True
+0.41460179945104897,,,0.0,False,terrain,8.006608524012217,slope_up,False,15,,terrain,,3015,False,True
+0.5587308036953218,,,0.0,False,terrain,8.01056841875888,slope_up,False,15,,terrain,,3016,False,True
+0.46856212249172247,,,0.0,False,terrain,8.00711448887489,slope_up,False,15,,terrain,,3017,False,True
+0.49165125850439584,,,0.0,False,terrain,8.005818800019354,slope_up,False,15,,terrain,,3018,False,True
+0.4900570683584992,,,0.0,False,terrain,8.006577484564987,slope_up,False,15,,terrain,,3019,False,True
+0.4873030873840089,sta>wal@26 wal>ter@91 ter>wal@597,,0.0,False,walk,8.003765426466387,slope_down,False,15,3,supervisor,,3000,False,True
+0.58354030411368,sta>wal@26 wal>ter@83 ter>wal@518,,0.0,False,walk,8.007035011680166,slope_down,False,15,3,supervisor,,3001,False,True
+0.42968038737115555,sta>wal@26 wal>ter@111 ter>wal@672,,0.0,False,walk,8.002307213136195,slope_down,False,15,3,supervisor,,3002,False,True
+0.4124537200178661,sta>wal@26 wal>ter@123 ter>wal@695,,0.0,False,walk,8.001219661339658,slope_down,False,15,3,supervisor,,3003,False,True
+0.57029833678748,sta>wal@26 wal>ter@84 ter>wal@523,,0.0,False,walk,8.008338682813758,slope_down,False,15,3,supervisor,,3004,False,True
+0.41916805894933984,sta>wal@26 wal>ter@104 ter>wal@672,,0.0,False,walk,8.002675713088086,slope_down,False,15,3,supervisor,,3005,False,True
+0.40676286337661144,sta>wal@26 wal>ter@111 ter>wal@697,,0.0,False,walk,8.001813308501351,slope_down,False,15,3,supervisor,,3006,False,True
+0.4892212485874742,sta>wal@26 wal>ter@94 ter>wal@599,,0.0,False,walk,8.003591723572164,slope_down,False,15,3,supervisor,,3007,False,True
+0.5666482075486095,sta>wal@26 wal>ter@78 ter>wal@515,,0.0,False,walk,8.002504300333486,slope_down,False,15,3,supervisor,,3008,False,True
+0.5662278371986416,sta>wal@26 wal>ter@91 ter>wal@531,,0.0,False,walk,8.004068347806937,slope_down,False,15,3,supervisor,,3009,False,True
+0.4240689300926905,sta>wal@26 wal>ter@112 ter>wal@670,,0.0,False,walk,8.005808679615845,slope_down,False,15,3,supervisor,,3010,False,True
+0.5694011472130832,sta>wal@26 wal>ter@81 ter>wal@521,,0.0,False,walk,8.009229764984168,slope_down,False,15,3,supervisor,,3011,False,True
+0.4370819564262508,sta>wal@26 wal>ter@111 ter>wal@657,,0.0,False,walk,8.00282833439284,slope_down,False,15,3,supervisor,,3012,False,True
+0.4140319352903917,sta>wal@26 wal>ter@102 ter>wal@681,,0.0,False,walk,8.004440142214492,slope_down,False,15,3,supervisor,,3013,False,True
+0.5188244536184856,sta>wal@26 wal>ter@79 ter>wal@560,,0.0,False,walk,8.009313120907416,slope_down,False,15,3,supervisor,,3014,False,True
+0.41460179945104897,sta>wal@26 wal>ter@109 ter>wal@686,,0.0,False,walk,8.006192266564948,slope_down,False,15,3,supervisor,,3015,False,True
+0.5587308036953218,sta>wal@26 wal>ter@88 ter>wal@534,,0.0,False,walk,8.00270243430391,slope_down,False,15,3,supervisor,,3016,False,True
+0.46856212249172247,sta>wal@26 wal>ter@102 ter>wal@621,,0.0,False,walk,8.005082066448665,slope_down,False,15,3,supervisor,,3017,False,True
+0.49165125850439584,sta>wal@26 wal>ter@84 ter>wal@585,,0.0,False,walk,8.009345185852013,slope_down,False,15,3,supervisor,,3018,False,True
+0.4900570683584992,sta>wal@26 wal>ter@105 ter>wal@601,,0.0,False,walk,8.003580014413572,slope_down,False,15,3,supervisor,,3019,False,True
+0.4873030873840089,,,0.0,False,walk,8.008545517747375,slope_down,False,15,,walk,,3000,False,True
+0.58354030411368,,,0.0,False,walk,8.01192358093912,slope_down,False,15,,walk,,3001,False,True
+0.42968038737115555,,,0.0,False,walk,8.007084408796294,slope_down,False,15,,walk,,3002,False,True
+0.4124537200178661,,,0.0,False,walk,8.001642606910279,slope_down,False,15,,walk,,3003,False,True
+0.57029833678748,,,0.0,False,walk,8.011596305569249,slope_down,False,15,,walk,,3004,False,True
+0.41916805894933984,,,0.0,False,walk,8.001383499856106,slope_down,False,15,,walk,,3005,False,True
+0.40676286337661144,,,0.0,False,walk,8.001190975547646,slope_down,False,15,,walk,,3006,False,True
+0.4892212485874742,,,0.0,False,walk,8.00287145375292,slope_down,False,15,,walk,,3007,False,True
+0.5666482075486095,,,0.0,False,walk,8.004779177691423,slope_down,False,15,,walk,,3008,False,True
+0.5662278371986416,,,0.0,False,walk,8.009545852297395,slope_down,False,15,,walk,,3009,False,True
+0.4240689300926905,,,0.0,False,walk,8.004620253441592,slope_down,False,15,,walk,,3010,False,True
+0.5694011472130832,,,0.0,False,walk,8.011458164320272,slope_down,False,15,,walk,,3011,False,True
+0.4370819564262508,,,0.0,False,walk,8.003086438930229,slope_down,False,15,,walk,,3012,False,True
+0.4140319352903917,,,0.0,False,walk,8.006692832865788,slope_down,False,15,,walk,,3013,False,True
+0.5188244536184856,,,0.0,False,walk,8.004271103480972,slope_down,False,15,,walk,,3014,False,True
+0.41460179945104897,,,0.0,False,walk,8.004313205576963,slope_down,False,15,,walk,,3015,False,True
+0.5587308036953218,,,0.0,False,walk,8.00871620070637,slope_down,False,15,,walk,,3016,False,True
+0.46856212249172247,,,0.0,False,walk,8.00023642602833,slope_down,False,15,,walk,,3017,False,True
+0.49165125850439584,,,0.0,False,walk,8.00943892023705,slope_down,False,15,,walk,,3018,False,True
+0.4900570683584992,,,0.0,False,walk,8.004309698600117,slope_down,False,15,,walk,,3019,False,True
+0.4873030873840089,,,0.0,False,terrain,8.010334109862711,slope_down,False,15,,terrain,,3000,False,True
+0.58354030411368,,,0.0,False,terrain,8.011380399068706,slope_down,False,15,,terrain,,3001,False,True
+0.42968038737115555,,,0.0,False,terrain,8.006721438520286,slope_down,False,15,,terrain,,3002,False,True
+0.4124537200178661,,,0.0,False,terrain,8.006506120443179,slope_down,False,15,,terrain,,3003,False,True
+0.57029833678748,,,0.0,False,terrain,8.004230700485943,slope_down,False,15,,terrain,,3004,False,True
+0.41916805894933984,,,0.0,False,terrain,8.001459417877449,slope_down,False,15,,terrain,,3005,False,True
+0.40676286337661144,,,0.0,False,terrain,8.006179144209737,slope_down,False,15,,terrain,,3006,False,True
+0.4892212485874742,,,0.0,False,terrain,8.00624350761896,slope_down,False,15,,terrain,,3007,False,True
+0.5666482075486095,,,0.0,False,terrain,8.010506090573282,slope_down,False,15,,terrain,,3008,False,True
+0.5662278371986416,,,0.0,False,terrain,8.009590418866575,slope_down,False,15,,terrain,,3009,False,True
+0.4240689300926905,,,0.0,False,terrain,8.000870342305758,slope_down,False,15,,terrain,,3010,False,True
+0.5694011472130832,,,0.0,False,terrain,8.005254629431478,slope_down,False,15,,terrain,,3011,False,True
+0.4370819564262508,,,0.0,False,terrain,8.002483959719823,slope_down,False,15,,terrain,,3012,False,True
+0.4140319352903917,,,0.0,False,terrain,8.000902943296172,slope_down,False,15,,terrain,,3013,False,True
+0.5188244536184856,,,0.0,False,terrain,8.002491701076464,slope_down,False,15,,terrain,,3014,False,True
+0.41460179945104897,,,0.0,False,terrain,8.001154157569896,slope_down,False,15,,terrain,,3015,False,True
+0.5587308036953218,,,0.0,False,terrain,8.00003553655109,slope_down,False,15,,terrain,,3016,False,True
+0.46856212249172247,,,0.0,False,terrain,8.000337971245388,slope_down,False,15,,terrain,,3017,False,True
+0.49165125850439584,,,0.0,False,terrain,8.00196388458271,slope_down,False,15,,terrain,,3018,False,True
+0.4900570683584992,,,0.0,False,terrain,8.002820548913787,slope_down,False,15,,terrain,,3019,False,True
+0.4873030873840089,sta>wal@26 wal>ter@91 ter>wal@417,,0.0,False,walk,8.001613723356726,stairs_up,False,0.04,3,supervisor,,3000,False,True
+0.58354030411368,sta>wal@26 wal>ter@83 ter>wal@369,,0.0,False,walk,8.00645291767395,stairs_up,False,0.04,3,supervisor,,3001,False,True
+0.42968038737115555,sta>wal@26 wal>ter@111 ter>wal@486,,0.0,False,walk,8.007209394137208,stairs_up,False,0.04,3,supervisor,,3002,False,True
+0.4124537200178661,sta>wal@26 wal>ter@123 ter>wal@505,,0.0,False,walk,8.008044927437501,stairs_up,False,0.04,3,supervisor,,3003,False,True
+0.57029833678748,sta>wal@26 wal>ter@84 ter>wal@375,,0.0,False,walk,8.00235127830477,stairs_up,False,0.04,3,supervisor,,3004,False,True
+0.41916805894933984,sta>wal@26 wal>ter@104 ter>wal@479,,0.0,False,walk,8.005773241531251,stairs_up,False,0.04,3,supervisor,,3005,False,True
+0.40676286337661144,sta>wal@26 wal>ter@111 ter>wal@493,,0.0,False,walk,8.007745804439267,stairs_up,False,0.04,3,supervisor,,3006,False,True
+0.4892212485874742,sta>wal@26 wal>ter@94 ter>wal@432,,0.0,False,walk,8.004512513875952,stairs_up,False,0.04,3,supervisor,,3007,False,True
+0.5666482075486095,sta>wal@26 wal>ter@78 ter>wal@372,,0.0,False,walk,8.006136780216606,stairs_up,False,0.04,3,supervisor,,3008,False,True
+0.5662278371986416,sta>wal@26 wal>ter@91 ter>wal@385,,0.0,False,walk,8.000375086937751,stairs_up,False,0.04,3,supervisor,,3009,False,True
+0.4240689300926905,sta>wal@26 wal>ter@112 ter>wal@485,,0.0,False,walk,8.005797186924632,stairs_up,False,0.04,3,supervisor,,3010,False,True
+0.5694011472130832,sta>wal@26 wal>ter@81 ter>wal@376,,0.0,False,walk,8.00900597533892,stairs_up,False,0.04,3,supervisor,,3011,False,True
+0.4370819564262508,sta>wal@26 wal>ter@111 ter>wal@483,,0.0,False,walk,8.005466181534342,stairs_up,False,0.04,3,supervisor,,3012,False,True
+0.4140319352903917,sta>wal@26 wal>ter@102 ter>wal@485,,0.0,False,walk,8.004246058029523,stairs_up,False,0.04,3,supervisor,,3013,False,True
+0.5188244536184856,sta>wal@26 wal>ter@79 ter>wal@400,,0.0,False,walk,8.000208908426702,stairs_up,False,0.04,3,supervisor,,3014,False,True
+0.41460179945104897,sta>wal@26 wal>ter@109 ter>wal@486,,0.0,False,walk,8.005313373037419,stairs_up,False,0.04,3,supervisor,,3015,False,True
+0.5587308036953218,sta>wal@26 wal>ter@88 ter>wal@387,,0.0,False,walk,8.001050630203666,stairs_up,False,0.04,3,supervisor,,3016,False,True
+0.46856212249172247,sta>wal@26 wal>ter@102 ter>wal@443,,0.0,False,walk,8.00387280944807,stairs_up,False,0.04,3,supervisor,,3017,False,True
+0.49165125850439584,sta>wal@26 wal>ter@84 ter>wal@408,,0.0,False,walk,8.003280660602151,stairs_up,False,0.04,3,supervisor,,3018,False,True
+0.4900570683584992,sta>wal@26 wal>ter@105 ter>wal@438,,0.0,False,walk,8.006013106384234,stairs_up,False,0.04,3,supervisor,,3019,False,True
+0.4873030873840089,,,0.0,False,walk,8.00767259693053,stairs_up,False,0.04,,walk,,3000,False,True
+0.58354030411368,,,0.0,False,walk,8.000007095360688,stairs_up,False,0.04,,walk,,3001,False,True
+0.42968038737115555,,,0.0,False,walk,8.006790963281983,stairs_up,False,0.04,,walk,,3002,False,True
+0.4124537200178661,,,0.0,False,walk,8.005553756223197,stairs_up,False,0.04,,walk,,3003,False,True
+0.57029833678748,,,0.0,False,walk,8.000620068342574,stairs_up,False,0.04,,walk,,3004,False,True
+0.41916805894933984,,,0.0,False,walk,8.004803365667334,stairs_up,False,0.04,,walk,,3005,False,True
+0.40676286337661144,,,0.0,False,walk,8.00755416319513,stairs_up,False,0.04,,walk,,3006,False,True
+0.4892212485874742,,,0.0,False,walk,8.005881165676236,stairs_up,False,0.04,,walk,,3007,False,True
+0.5666482075486095,,,0.0,False,walk,8.00056813136843,stairs_up,False,0.04,,walk,,3008,False,True
+0.5662278371986416,,,0.0,False,walk,8.00302121892518,stairs_up,False,0.04,,walk,,3009,False,True
+0.4240689300926905,,,0.0,False,walk,8.00043983903563,stairs_up,False,0.04,,walk,,3010,False,True
+0.5694011472130832,,,0.0,False,walk,8.006095068957272,stairs_up,False,0.04,,walk,,3011,False,True
+0.4370819564262508,,,0.0,False,walk,8.008005621154311,stairs_up,False,0.04,,walk,,3012,False,True
+0.4140319352903917,,,0.0,False,walk,8.002551798429225,stairs_up,False,0.04,,walk,,3013,False,True
+0.5188244536184856,,,0.0,False,walk,8.002303878165566,stairs_up,False,0.04,,walk,,3014,False,True
+0.41460179945104897,,,0.0,False,walk,8.006276643183893,stairs_up,False,0.04,,walk,,3015,False,True
+0.5587308036953218,,,0.0,False,walk,8.007766107953737,stairs_up,False,0.04,,walk,,3016,False,True
+0.46856212249172247,,,0.0,False,walk,8.002711286692422,stairs_up,False,0.04,,walk,,3017,False,True
+0.49165125850439584,,,0.0,False,walk,8.008094923746462,stairs_up,False,0.04,,walk,,3018,False,True
+0.4900570683584992,,,0.0,False,walk,8.004967716836841,stairs_up,False,0.04,,walk,,3019,False,True
+0.4873030873840089,,,0.0,False,terrain,8.003507119809711,stairs_up,False,0.04,,terrain,,3000,False,True
+0.58354030411368,,,0.0,False,terrain,8.005446468927667,stairs_up,False,0.04,,terrain,,3001,False,True
+0.42968038737115555,,,0.0,False,terrain,8.002080457635431,stairs_up,False,0.04,,terrain,,3002,False,True
+0.4124537200178661,,,0.0,False,terrain,8.008664960701486,stairs_up,False,0.04,,terrain,,3003,False,True
+0.57029833678748,,,0.0,False,terrain,8.009337610614917,stairs_up,False,0.04,,terrain,,3004,False,True
+0.41916805894933984,,,0.0,False,terrain,8.004258141209228,stairs_up,False,0.04,,terrain,,3005,False,True
+0.40676286337661144,,,0.0,False,terrain,8.00868002796607,stairs_up,False,0.04,,terrain,,3006,False,True
+0.4892212485874742,,,0.0,False,terrain,8.011733190478195,stairs_up,False,0.04,,terrain,,3007,False,True
+0.5666482075486095,,,0.0,False,terrain,8.00900483312203,stairs_up,False,0.04,,terrain,,3008,False,True
+0.5662278371986416,,,0.0,False,terrain,8.010828069125662,stairs_up,False,0.04,,terrain,,3009,False,True
+0.4240689300926905,,,0.0,False,terrain,8.006075767192236,stairs_up,False,0.04,,terrain,,3010,False,True
+0.5694011472130832,,,0.0,False,terrain,8.001773691086575,stairs_up,False,0.04,,terrain,,3011,False,True
+0.4370819564262508,,,0.0,False,terrain,8.003689449535058,stairs_up,False,0.04,,terrain,,3012,False,True
+0.4140319352903917,,,0.0,False,terrain,8.006161631393299,stairs_up,False,0.04,,terrain,,3013,False,True
+0.5188244536184856,,,0.0,False,terrain,8.006903268040535,stairs_up,False,0.04,,terrain,,3014,False,True
+0.41460179945104897,,,0.0,False,terrain,8.00423820791435,stairs_up,False,0.04,,terrain,,3015,False,True
+0.5587308036953218,,,0.0,False,terrain,8.01104684908332,stairs_up,False,0.04,,terrain,,3016,False,True
+0.46856212249172247,,,0.0,False,terrain,8.000187306889364,stairs_up,False,0.04,,terrain,,3017,False,True
+0.49165125850439584,,,0.0,False,terrain,8.001452529536879,stairs_up,False,0.04,,terrain,,3018,False,True
+0.4900570683584992,,,0.0,False,terrain,8.005498983815249,stairs_up,False,0.04,,terrain,,3019,False,True
+0.4873030873840089,sta>wal@26 wal>ter@91 ter>wal@425,,0.0,False,walk,8.003037601426971,stairs_down,False,0.06,3,supervisor,,3000,False,True
+0.58354030411368,sta>wal@26 wal>ter@83 ter>wal@359,,0.0,False,walk,8.00096059806855,stairs_down,False,0.06,3,supervisor,,3001,False,True
+0.42968038737115555,sta>wal@26 wal>ter@111 ter>wal@479,,0.0,False,walk,8.004414983216718,stairs_down,False,0.06,3,supervisor,,3002,False,True
+0.4124537200178661,sta>wal@26 wal>ter@123 ter>wal@495,,0.0,False,walk,8.007103019409715,stairs_down,False,0.06,3,supervisor,,3003,False,True
+0.57029833678748,sta>wal@26 wal>ter@84 ter>wal@373,,0.0,False,walk,8.010236486809909,stairs_down,False,0.06,3,supervisor,,3004,False,True
+0.41916805894933984,sta>wal@26 wal>ter@104 ter>wal@475,,0.0,False,walk,8.000004708908842,stairs_down,False,0.06,3,supervisor,,3005,False,True
+0.40676286337661144,sta>wal@26 wal>ter@111 ter>wal@493,,0.0,False,walk,8.007171333701203,stairs_down,False,0.06,3,supervisor,,3006,False,True
+0.4892212485874742,sta>wal@26 wal>ter@94 ter>wal@424,,0.0,False,walk,8.00045009599404,stairs_down,False,0.06,3,supervisor,,3007,False,True
+0.5666482075486095,sta>wal@26 wal>ter@78 ter>wal@357,,0.0,False,walk,8.00803366240371,stairs_down,False,0.06,3,supervisor,,3008,False,True
+0.5662278371986416,sta>wal@26 wal>ter@91 ter>wal@381,,0.0,False,walk,8.002622567559836,stairs_down,False,0.06,3,supervisor,,3009,False,True
+0.4240689300926905,sta>wal@26 wal>ter@112 ter>wal@479,,0.0,False,walk,8.002988369806193,stairs_down,False,0.06,3,supervisor,,3010,False,True
+0.5694011472130832,sta>wal@26 wal>ter@81 ter>wal@366,,0.0,False,walk,8.007867375868686,stairs_down,False,0.06,3,supervisor,,3011,False,True
+0.4370819564262508,sta>wal@26 wal>ter@111 ter>wal@475,,0.0,False,walk,8.007838312059484,stairs_down,False,0.06,3,supervisor,,3012,False,True
+0.4140319352903917,sta>wal@26 wal>ter@102 ter>wal@478,,0.0,False,walk,8.000571771401333,stairs_down,False,0.06,3,supervisor,,3013,False,True
+0.5188244536184856,sta>wal@26 wal>ter@79 ter>wal@402,,0.0,False,walk,8.009821899634298,stairs_down,False,0.06,3,supervisor,,3014,False,True
+0.41460179945104897,sta>wal@26 wal>ter@109 ter>wal@487,,0.0,False,walk,8.006797425766267,stairs_down,False,0.06,3,supervisor,,3015,False,True
+0.5587308036953218,sta>wal@26 wal>ter@88 ter>wal@380,,0.0,False,walk,8.004249613281331,stairs_down,False,0.06,3,supervisor,,3016,False,True
+0.46856212249172247,sta>wal@26 wal>ter@102 ter>wal@435,,0.0,False,walk,8.006777128771505,stairs_down,False,0.06,3,supervisor,,3017,False,True
+0.49165125850439584,sta>wal@26 wal>ter@84 ter>wal@410,,0.0,False,walk,8.004710209540495,stairs_down,False,0.06,3,supervisor,,3018,False,True
+0.4900570683584992,sta>wal@26 wal>ter@105 ter>wal@432,,0.0,False,walk,8.004413682394715,stairs_down,False,0.06,3,supervisor,,3019,False,True
+0.4873030873840089,,,0.0,False,walk,8.00655225303111,stairs_down,False,0.06,,walk,,3000,False,True
+0.58354030411368,,,0.0,False,walk,8.000435599266703,stairs_down,False,0.06,,walk,,3001,False,True
+0.42968038737115555,,,0.0,False,walk,8.007753699722485,stairs_down,False,0.06,,walk,,3002,False,True
+0.4124537200178661,,,0.0,False,walk,8.005510814067588,stairs_down,False,0.06,,walk,,3003,False,True
+0.57029833678748,,,0.0,False,walk,8.010564130411533,stairs_down,False,0.06,,walk,,3004,False,True
+0.41916805894933984,,,0.0,False,walk,8.001945453675646,stairs_down,False,0.06,,walk,,3005,False,True
+0.40676286337661144,,,0.0,False,walk,8.006558489767666,stairs_down,False,0.06,,walk,,3006,False,True
+0.4892212485874742,,,0.0,False,walk,8.009022970785388,stairs_down,False,0.06,,walk,,3007,False,True
+0.5666482075486095,,,0.0,False,walk,8.01099313504643,stairs_down,False,0.06,,walk,,3008,False,True
+0.5662278371986416,,,0.0,False,walk,8.001973771704751,stairs_down,False,0.06,,walk,,3009,False,True
+0.4240689300926905,,,0.0,False,walk,8.006004547256438,stairs_down,False,0.06,,walk,,3010,False,True
+0.5694011472130832,,,0.0,False,walk,8.002150853632443,stairs_down,False,0.06,,walk,,3011,False,True
+0.4370819564262508,,,0.0,False,walk,8.003552367093944,stairs_down,False,0.06,,walk,,3012,False,True
+0.4140319352903917,,,0.0,False,walk,8.007326503151702,stairs_down,False,0.06,,walk,,3013,False,True
+0.5188244536184856,,,0.0,False,walk,8.002501567821213,stairs_down,False,0.06,,walk,,3014,False,True
+0.41460179945104897,,,0.0,False,walk,8.007826986250556,stairs_down,False,0.06,,walk,,3015,False,True
+0.5587308036953218,,,0.0,False,walk,8.006701316835091,stairs_down,False,0.06,,walk,,3016,False,True
+0.46856212249172247,,,0.0,False,walk,8.00459720896705,stairs_down,False,0.06,,walk,,3017,False,True
+0.49165125850439584,,,0.0,False,walk,8.004013509068258,stairs_down,False,0.06,,walk,,3018,False,True
+0.4900570683584992,,,0.0,False,walk,8.003185030461653,stairs_down,False,0.06,,walk,,3019,False,True
+0.4873030873840089,,,0.0,False,terrain,8.005251255756429,stairs_down,False,0.06,,terrain,,3000,False,True
+0.58354030411368,,,0.0,False,terrain,8.001752715260277,stairs_down,False,0.06,,terrain,,3001,False,True
+0.42968038737115555,,,0.0,False,terrain,8.003997164179893,stairs_down,False,0.06,,terrain,,3002,False,True
+0.4124537200178661,,,0.0,False,terrain,8.00833181857483,stairs_down,False,0.06,,terrain,,3003,False,True
+0.57029833678748,,,0.0,False,terrain,8.008757162904768,stairs_down,False,0.06,,terrain,,3004,False,True
+0.41916805894933984,,,0.0,False,terrain,8.006642016759908,stairs_down,False,0.06,,terrain,,3005,False,True
+0.40676286337661144,,,0.0,False,terrain,8.006320575517684,stairs_down,False,0.06,,terrain,,3006,False,True
+0.4892212485874742,,,0.0,False,terrain,8.002604623430347,stairs_down,False,0.06,,terrain,,3007,False,True
+0.5666482075486095,,,0.0,False,terrain,8.007953201463701,stairs_down,False,0.06,,terrain,,3008,False,True
+0.5662278371986416,,,0.0,False,terrain,8.012272497882407,stairs_down,False,0.06,,terrain,,3009,False,True
+0.4240689300926905,,,0.0,False,terrain,8.001894974119175,stairs_down,False,0.06,,terrain,,3010,False,True
+0.5694011472130832,,,0.0,False,terrain,8.008387985782836,stairs_down,False,0.06,,terrain,,3011,False,True
+0.4370819564262508,,,0.0,False,terrain,8.001792786565773,stairs_down,False,0.06,,terrain,,3012,False,True
+0.4140319352903917,,,0.0,False,terrain,8.00263074446235,stairs_down,False,0.06,,terrain,,3013,False,True
+0.5188244536184856,,,0.0,False,terrain,8.006339796693409,stairs_down,False,0.06,,terrain,,3014,False,True
+0.41460179945104897,,,0.0,False,terrain,8.004737364937244,stairs_down,False,0.06,,terrain,,3015,False,True
+0.5587308036953218,,,0.0,False,terrain,8.006423320046297,stairs_down,False,0.06,,terrain,,3016,False,True
+0.46856212249172247,,,0.0,False,terrain,8.008380516915754,stairs_down,False,0.06,,terrain,,3017,False,True
+0.49165125850439584,,,0.0,False,terrain,8.003386126990945,stairs_down,False,0.06,,terrain,,3018,False,True
+0.4900570683584992,,,0.0,False,terrain,8.00852414596471,stairs_down,False,0.06,,terrain,,3019,False,True
+1.4746061747680177,sta>wal@26 wal>run@52 run>ste@257 ste>run@367,,0.0,False,run,8.388635152856722,hurdle,False,0.03,4,supervisor,,3000,False,True
+1.66708060822736,sta>wal@26 wal>run@55 run>ste@447 ste>run@544,,0.0,False,run,8.69901094521389,hurdle,False,0.03,4,supervisor,,3001,False,True
+1.359360774742311,sta>wal@26 wal>run@53 run>ste@187 ste>run@311,,0.0,False,run,8.105719011869855,hurdle,False,0.03,4,supervisor,,3002,False,True
+1.3249074400357321,sta>wal@26 wal>run@52 run>ste@195 ste>run@338,,0.0,False,run,7.962770585561097,hurdle,False,0.03,4,supervisor,,3003,False,True
+1.64059667357496,sta>wal@26 wal>run@52 run>ste@165 ste>run@263,,0.0,False,run,8.665606198232041,hurdle,False,0.03,4,supervisor,,3004,False,True
+1.3383361178986797,sta>wal@26 wal>run@52 run>ste@185 ste>run@500,,0.0,False,run,7.943495405611924,hurdle,False,0.03,4,supervisor,,3005,False,True
+1.313525726753223,sta>wal@26 wal>run@52 run>ste@193 ste>run@321,,0.0,False,run,8.033440294476364,hurdle,False,0.03,4,supervisor,,3006,False,True
+1.4784424971749484,sta>wal@26 wal>run@52 run>ste@177 ste>run@295,,0.0,False,run,8.294216582107989,hurdle,False,0.03,4,supervisor,,3007,False,True
+1.633296415097219,sta>wal@26 wal>run@52 run>ste@163 ste>run@282,,0.0,False,run,7.735426482444391,hurdle,False,0.03,4,supervisor,,3008,False,True
+1.6324556743972831,sta>wal@26 wal>run@56 run>ste@172 ste>run@332,,0.0,False,run,6.4944411271649125,hurdle,False,0.03,4,supervisor,,3009,False,True
+1.3481378601853808,sta>wal@26 wal>run@55 run>ste@190 ste>run@316,,0.0,False,run,8.103221999860644,hurdle,False,0.03,4,supervisor,,3010,False,True
+1.6388022944261664,sta>wal@26 wal>run@55 run>ste@212 ste>run@315,,0.0,False,run,6.526404239964307,hurdle,False,0.03,4,supervisor,,3011,False,False
+1.3741639128525016,sta>wal@26 wal>run@56 run>ste@189 ste>run@308,,0.0,False,run,8.20063405736876,hurdle,False,0.03,4,supervisor,,3012,False,True
+1.3280638705807832,sta>wal@26 wal>run@52 run>ste@187 ste>run@311,,0.0,False,run,8.077927685962583,hurdle,False,0.03,4,supervisor,,3013,False,True
+1.5376489072369712,sta>wal@26 wal>run@55 run>ste@171 ste>run@276,,0.0,False,run,8.579577903913778,hurdle,False,0.03,4,supervisor,,3014,False,True
+1.329203598902098,sta>wal@26 wal>run@54,,0.0,False,run,0.06703947846889631,hurdle,False,0.03,2,supervisor,,3015,True,False
+1.6174616073906436,sta>wal@26 wal>run@52 run>ste@167 ste>run@266,,0.0,False,run,8.702671862221143,hurdle,False,0.03,4,supervisor,,3016,False,True
+1.437124244983445,sta>wal@26 wal>run@58 run>ste@185 ste>run@300,,0.0,False,run,8.264124719852157,hurdle,False,0.03,4,supervisor,,3017,False,True
+1.4833025170087917,sta>wal@26 wal>run@52 run>ste@172 ste>run@282,,0.0,False,run,8.432422472369248,hurdle,False,0.03,4,supervisor,,3018,False,True
+1.4801141367169983,sta>wal@26 wal>run@52 run>ste@183 ste>run@291,,0.0,False,run,6.998135486574,hurdle,False,0.03,4,supervisor,,3019,False,False
+1.4746061747680177,,,0.0,False,run,8.326955026233447,hurdle,False,0.03,,run,,3000,False,True
+1.66708060822736,,,0.0,False,run,8.723836365554716,hurdle,False,0.03,,run,,3001,False,True
+1.359360774742311,,,0.0,False,run,7.965894964837797,hurdle,False,0.03,,run,,3002,False,True
+1.3249074400357321,,,0.0,False,run,8.096815726068035,hurdle,False,0.03,,run,,3003,False,True
+1.64059667357496,,,0.0,False,run,8.426261583547985,hurdle,False,0.03,,run,,3004,False,True
+1.3383361178986797,,,0.0,False,run,8.123528041671122,hurdle,False,0.03,,run,,3005,False,True
+1.313525726753223,,,0.0,False,run,8.082215538516476,hurdle,False,0.03,,run,,3006,False,True
+1.4784424971749484,,,0.0,False,run,8.313400347164926,hurdle,False,0.03,,run,,3007,False,True
+1.633296415097219,,,0.0,False,run,8.663487487918669,hurdle,False,0.03,,run,,3008,False,True
+1.6324556743972831,,,0.0,False,run,1.6300445245210784,hurdle,False,0.03,,run,,3009,True,False
+1.3481378601853808,,,0.0,False,run,8.148055468858484,hurdle,False,0.03,,run,,3010,False,True
+1.6388022944261664,,,0.0,False,run,8.676464194606613,hurdle,False,0.03,,run,,3011,False,True
+1.3741639128525016,,,0.0,False,run,8.215945970824926,hurdle,False,0.03,,run,,3012,False,True
+1.3280638705807832,,,0.0,False,run,8.123643162416029,hurdle,False,0.03,,run,,3013,False,True
+1.5376489072369712,,,0.0,False,run,8.44782694778872,hurdle,False,0.03,,run,,3014,False,True
+1.329203598902098,,,0.0,False,run,8.12578637048877,hurdle,False,0.03,,run,,3015,False,True
+1.6174616073906436,,,0.0,False,run,8.667532877295622,hurdle,False,0.03,,run,,3016,False,True
+1.437124244983445,,,0.0,False,run,8.257618951036966,hurdle,False,0.03,,run,,3017,False,True
+1.4833025170087917,,,0.0,False,run,6.804791769506524,hurdle,False,0.03,,run,,3018,False,True
+1.4801141367169983,,,0.0,False,run,5.574954247172149,hurdle,False,0.03,,run,,3019,False,False
+1.4746061747680177,,,0.0,False,stepover,8.367274077600788,hurdle,False,0.03,,stepover,,3000,False,True
+1.66708060822736,,,0.0,False,stepover,8.270282156204297,hurdle,False,0.03,,stepover,,3001,False,True
+1.359360774742311,,,0.0,False,stepover,8.110619078775066,hurdle,False,0.03,,stepover,,3002,False,True
+1.3249074400357321,,,0.0,False,stepover,7.982850591288367,hurdle,False,0.03,,stepover,,3003,False,True
+1.64059667357496,,,0.0,False,stepover,8.456462525295478,hurdle,False,0.03,,stepover,,3004,False,True
+1.3383361178986797,,,0.0,False,stepover,8.012892512529922,hurdle,False,0.03,,stepover,,3005,False,True
+1.313525726753223,,,0.0,False,stepover,7.963957395022219,hurdle,False,0.03,,stepover,,3006,False,True
+1.4784424971749484,,,0.0,False,stepover,8.413297049541029,hurdle,False,0.03,,stepover,,3007,False,True
+1.633296415097219,,,0.0,False,stepover,8.652398200524441,hurdle,False,0.03,,stepover,,3008,False,True
+1.6324556743972831,,,0.0,False,stepover,8.720302938605714,hurdle,False,0.03,,stepover,,3009,False,True
+1.3481378601853808,,,0.0,False,stepover,8.088616352477892,hurdle,False,0.03,,stepover,,3010,False,True
+1.6388022944261664,,,0.0,False,stepover,8.675885626391374,hurdle,False,0.03,,stepover,,3011,False,True
+1.3741639128525016,,,0.0,False,stepover,8.191890976768024,hurdle,False,0.03,,stepover,,3012,False,True
+1.3280638705807832,,,0.0,False,stepover,8.053061546738897,hurdle,False,0.03,,stepover,,3013,False,True
+1.5376489072369712,,,0.0,False,stepover,8.488757336732917,hurdle,False,0.03,,stepover,,3014,False,True
+1.329203598902098,,,0.0,False,stepover,8.021601141375461,hurdle,False,0.03,,stepover,,3015,False,True
+1.6174616073906436,,,0.0,False,stepover,8.678748487956874,hurdle,False,0.03,,stepover,,3016,False,True
+1.437124244983445,,,0.0,False,stepover,8.286320366325182,hurdle,False,0.03,,stepover,,3017,False,True
+1.4833025170087917,,,0.0,False,stepover,8.357094560344446,hurdle,False,0.03,,stepover,,3018,False,True
+1.4801141367169983,,,0.0,False,stepover,8.367804156933612,hurdle,False,0.03,,stepover,,3019,False,True
+1.4746061747680177,sta>wal@26 wal>run@52 run>ste@257 ste>run@372,,0.0,False,run,8.28218424088289,hurdle,False,0.05,4,supervisor,,3000,False,True
+1.66708060822736,sta>wal@26 wal>run@55 run>ste@447 ste>run@554,,0.0,False,run,8.517037733097247,hurdle,False,0.05,4,supervisor,,3001,False,True
+1.359360774742311,sta>wal@26 wal>run@53 run>ste@187 ste>run@372,,0.0,False,run,8.052025660174323,hurdle,False,0.05,4,supervisor,,3002,False,True
+1.3249074400357321,sta>wal@26 wal>run@52 run>ste@195 ste>run@332,,0.0,False,run,7.995884461937319,hurdle,False,0.05,4,supervisor,,3003,False,True
+1.64059667357496,sta>wal@26 wal>run@52 run>ste@165 ste>run@264,,0.0,False,run,8.66887667743343,hurdle,False,0.05,4,supervisor,,3004,False,True
+1.3383361178986797,sta>wal@26 wal>run@52 run>ste@185 ste>run@321,,0.0,False,run,7.852012095016468,hurdle,False,0.05,4,supervisor,,3005,False,True
+1.313525726753223,sta>wal@26 wal>run@52 run>ste@193 ste>run@324,,0.0,False,run,8.015828810690795,hurdle,False,0.05,4,supervisor,,3006,False,True
+1.4784424971749484,sta>wal@26 wal>run@52 run>ste@177 ste>run@295,,0.0,False,run,8.340588316741961,hurdle,False,0.05,4,supervisor,,3007,False,True
+1.633296415097219,sta>wal@26 wal>run@52 run>ste@163 ste>run@261,,0.0,False,run,8.679060089229743,hurdle,False,0.05,4,supervisor,,3008,False,True
+1.6324556743972831,sta>wal@26 wal>run@56 run>ste@172 ste>run@395,,0.0,False,run,8.113362750649047,hurdle,False,0.05,4,supervisor,,3009,False,True
+1.3481378601853808,sta>wal@26 wal>run@55 run>ste@190 ste>run@322,,0.0,False,run,8.036291108895446,hurdle,False,0.05,4,supervisor,,3010,False,True
+1.6388022944261664,sta>wal@26 wal>run@55 run>ste@212 ste>run@316,,0.0,False,run,8.608259439110206,hurdle,False,0.05,4,supervisor,,3011,False,True
+1.3741639128525016,sta>wal@26 wal>run@56 run>ste@189 ste>run@315,,0.0,False,run,8.014033319460044,hurdle,False,0.05,4,supervisor,,3012,False,True
+1.3280638705807832,sta>wal@26 wal>run@52 run>ste@187,stepover,5.366695163778006,True,stepover,5.366695163778006,hurdle,False,0.05,3,supervisor,hit_hurdle,3013,False,False
+1.5376489072369712,sta>wal@26 wal>run@55 run>ste@171 ste>run@280,,0.0,False,run,8.463709624519396,hurdle,False,0.05,4,supervisor,,3014,False,True
+1.329203598902098,sta>wal@26 wal>run@54,,0.0,False,run,0.06703947846889631,hurdle,False,0.05,2,supervisor,,3015,True,False
+1.6174616073906436,sta>wal@26 wal>run@52 run>ste@167 ste>run@342 run>ste@368 ste>run@394,,0.0,False,run,6.240648940833902,hurdle,False,0.05,6,supervisor,,3016,False,False
+1.437124244983445,sta>wal@26 wal>run@58 run>ste@185 ste>run@302,,0.0,False,run,8.279681488861165,hurdle,False,0.05,4,supervisor,,3017,False,True
+1.4833025170087917,sta>wal@26 wal>run@52 run>ste@172 ste>run@390,,0.0,False,run,8.223304369555338,hurdle,False,0.05,4,supervisor,,3018,False,True
+1.4801141367169983,sta>wal@26 wal>run@52 run>ste@183,stepover,5.34409772710208,True,stepover,5.34409772710208,hurdle,False,0.05,3,supervisor,hit_hurdle,3019,False,False
+1.4746061747680177,,,0.0,False,run,8.195114812883903,hurdle,False,0.05,,run,,3000,False,True
+1.66708060822736,,,0.0,False,run,8.673519343671153,hurdle,False,0.05,,run,,3001,False,True
+1.359360774742311,,,0.0,False,run,8.162194439450468,hurdle,False,0.05,,run,,3002,False,True
+1.3249074400357321,,run,5.375708932612276,True,run,5.375708932612276,hurdle,False,0.05,,run,hit_hurdle,3003,False,False
+1.64059667357496,,,0.0,False,run,8.690446446116681,hurdle,False,0.05,,run,,3004,False,True
+1.3383361178986797,,,0.0,False,run,8.140095941498416,hurdle,False,0.05,,run,,3005,False,True
+1.313525726753223,,,0.0,False,run,6.250526890501368,hurdle,False,0.05,,run,,3006,False,True
+1.4784424971749484,,,0.0,False,run,8.352394396626512,hurdle,False,0.05,,run,,3007,False,True
+1.633296415097219,,,0.0,False,run,8.63416358302174,hurdle,False,0.05,,run,,3008,False,True
+1.6324556743972831,,,0.0,False,run,1.6300445245210784,hurdle,False,0.05,,run,,3009,True,False
+1.3481378601853808,,,0.0,False,run,8.152139003797325,hurdle,False,0.05,,run,,3010,False,True
+1.6388022944261664,,,0.0,False,run,8.71495938777269,hurdle,False,0.05,,run,,3011,False,True
+1.3741639128525016,,,0.0,False,run,7.838376544688891,hurdle,False,0.05,,run,,3012,False,False
+1.3280638705807832,,,0.0,False,run,8.122765773836612,hurdle,False,0.05,,run,,3013,False,True
+1.5376489072369712,,,0.0,False,run,5.662346620213884,hurdle,False,0.05,,run,,3014,False,False
+1.329203598902098,,,0.0,False,run,8.090968897473228,hurdle,False,0.05,,run,,3015,False,True
+1.6174616073906436,,,0.0,False,run,8.209783383309446,hurdle,False,0.05,,run,,3016,False,True
+1.437124244983445,,,0.0,False,run,8.322583315645883,hurdle,False,0.05,,run,,3017,False,True
+1.4833025170087917,,,0.0,False,run,8.340337160598478,hurdle,False,0.05,,run,,3018,False,True
+1.4801141367169983,,,0.0,False,run,8.31178811573917,hurdle,False,0.05,,run,,3019,False,True
+1.4746061747680177,,stepover,5.325834965049693,True,stepover,5.325834965049693,hurdle,False,0.05,,stepover,hit_hurdle,3000,False,False
+1.66708060822736,,,0.0,False,stepover,8.711028687252547,hurdle,False,0.05,,stepover,,3001,False,True
+1.359360774742311,,,0.0,False,stepover,7.999271579409281,hurdle,False,0.05,,stepover,,3002,False,True
+1.3249074400357321,,,0.0,False,stepover,7.741350502516722,hurdle,False,0.05,,stepover,,3003,False,True
+1.64059667357496,,stepover,6.765597731594175,True,stepover,6.765597731594175,hurdle,True,0.05,,stepover,left_course,3004,False,False
+1.3383361178986797,,,0.0,False,stepover,7.699103444540788,hurdle,False,0.05,,stepover,,3005,False,True
+1.313525726753223,,,0.0,False,stepover,7.909088962708674,hurdle,False,0.05,,stepover,,3006,False,True
+1.4784424971749484,,stepover,5.36029327786082,True,stepover,5.36029327786082,hurdle,False,0.05,,stepover,hit_hurdle,3007,False,False
+1.633296415097219,,,0.0,False,stepover,8.680568539235889,hurdle,False,0.05,,stepover,,3008,False,True
+1.6324556743972831,,stepover,6.330359302212413,True,stepover,6.330359302212413,hurdle,False,0.05,,stepover,tilt,3009,False,False
+1.3481378601853808,,,0.0,False,stepover,8.005305050259908,hurdle,False,0.05,,stepover,,3010,False,True
+1.6388022944261664,,,0.0,False,stepover,8.71704324570419,hurdle,False,0.05,,stepover,,3011,False,True
+1.3741639128525016,,,0.0,False,stepover,8.046099991718451,hurdle,False,0.05,,stepover,,3012,False,True
+1.3280638705807832,,,0.0,False,stepover,7.962009336544049,hurdle,False,0.05,,stepover,,3013,False,True
+1.5376489072369712,,,0.0,False,stepover,7.7901499686715505,hurdle,False,0.05,,stepover,,3014,False,True
+1.329203598902098,,stepover,5.28325379449891,True,stepover,5.28325379449891,hurdle,False,0.05,,stepover,hit_hurdle,3015,False,False
+1.6174616073906436,,,0.0,False,stepover,8.651132352773427,hurdle,False,0.05,,stepover,,3016,False,True
+1.437124244983445,,,0.0,False,stepover,8.151405091783005,hurdle,False,0.05,,stepover,,3017,False,True
+1.4833025170087917,,,0.0,False,stepover,8.452301769611326,hurdle,False,0.05,,stepover,,3018,False,True
+1.4801141367169983,,stepover,5.391334211577739,True,stepover,5.391334211577739,hurdle,False,0.05,,stepover,hit_hurdle,3019,False,False
+1.4746061747680177,sta>wal@26 wal>run@52 run>ste@257 ste>run@378,,0.0,False,run,6.652897204475653,hurdle,False,0.07,4,supervisor,,3000,False,True
+1.66708060822736,sta>wal@26 wal>run@55 run>ste@447,,0.0,False,stepover,5.194606596751175,hurdle,False,0.07,3,supervisor,,3001,True,False
+1.359360774742311,sta>wal@26 wal>run@53 run>ste@187,stepover,5.578154971698193,True,stepover,5.578154971698193,hurdle,False,0.07,3,supervisor,trunk_contact,3002,False,False
+1.3249074400357321,sta>wal@26 wal>run@52 run>ste@195 ste>run@332,,0.0,False,run,7.951370106827592,hurdle,False,0.07,4,supervisor,,3003,False,True
+1.64059667357496,sta>wal@26 wal>run@52 run>ste@165 ste>run@268,,0.0,False,run,8.569853342070449,hurdle,False,0.07,4,supervisor,,3004,False,True
+1.3383361178986797,sta>wal@26 wal>run@52 run>ste@185,stepover,5.391031256276262,True,stepover,5.391031256276262,hurdle,False,0.07,3,supervisor,hit_hurdle,3005,False,False
+1.313525726753223,sta>wal@26 wal>run@52 run>ste@193 ste>run@336,,0.0,False,run,7.867363586585014,hurdle,False,0.07,4,supervisor,,3006,False,True
+1.4784424971749484,sta>wal@26 wal>run@52 run>ste@177 ste>run@293,,0.0,False,run,8.272426295082052,hurdle,False,0.07,4,supervisor,,3007,False,True
+1.633296415097219,sta>wal@26 wal>run@52 run>ste@163,stepover,5.390194254785669,True,stepover,5.390194254785669,hurdle,False,0.07,3,supervisor,hit_hurdle,3008,False,False
+1.6324556743972831,sta>wal@26 wal>run@56 run>ste@172,stepover,5.604093859213365,True,stepover,5.604093859213365,hurdle,False,0.07,3,supervisor,tilt,3009,False,False
+1.3481378601853808,sta>wal@26 wal>run@55 run>ste@190 ste>run@413,,0.0,False,run,7.837420276524177,hurdle,False,0.07,4,supervisor,,3010,False,True
+1.6388022944261664,sta>wal@26 wal>run@55 run>ste@212 ste>run@395,,0.0,False,run,8.445129312267955,hurdle,False,0.07,4,supervisor,,3011,False,True
+1.3741639128525016,sta>wal@26 wal>run@56 run>ste@189,,0.0,False,stepover,5.141429232621769,hurdle,False,0.07,3,supervisor,,3012,True,False
+1.3280638705807832,sta>wal@26 wal>run@52 run>ste@187,,0.0,False,stepover,5.626870526546484,hurdle,False,0.07,3,supervisor,,3013,False,True
+1.5376489072369712,sta>wal@26 wal>run@55 run>ste@171 ste>run@295,,0.0,False,run,8.166761252924655,hurdle,False,0.07,4,supervisor,,3014,False,True
+1.329203598902098,sta>wal@26 wal>run@54,,0.0,False,run,0.06703947846889631,hurdle,False,0.07,2,supervisor,,3015,True,False
+1.6174616073906436,sta>wal@26 wal>run@52 run>ste@167,,0.0,False,stepover,5.188049438862388,hurdle,False,0.07,3,supervisor,,3016,True,False
+1.437124244983445,sta>wal@26 wal>run@58 run>ste@185 ste>run@303,,0.0,False,run,8.243026261619768,hurdle,False,0.07,4,supervisor,,3017,False,True
+1.4833025170087917,sta>wal@26 wal>run@52 run>ste@172,,0.0,False,stepover,5.037751748450109,hurdle,False,0.07,3,supervisor,,3018,True,False
+1.4801141367169983,sta>wal@26 wal>run@52 run>ste@183,stepover,4.630284787144936,True,stepover,4.630284787144936,hurdle,False,0.07,3,supervisor,tilt,3019,False,False
+1.4746061747680177,,run,5.66765210999495,True,run,5.66765210999495,hurdle,False,0.07,,run,tilt,3000,False,False
+1.66708060822736,,,0.0,False,run,5.181220684919267,hurdle,False,0.07,,run,,3001,True,False
+1.359360774742311,,,0.0,False,run,5.096553315396516,hurdle,False,0.07,,run,,3002,True,False
+1.3249074400357321,,,0.0,False,run,8.066218293886653,hurdle,False,0.07,,run,,3003,False,True
+1.64059667357496,,run,5.389956550247428,True,run,5.389956550247428,hurdle,False,0.07,,run,tilt,3004,False,False
+1.3383361178986797,,run,5.310701688458567,True,run,5.310701688458567,hurdle,False,0.07,,run,hit_hurdle,3005,False,False
+1.313525726753223,,,0.0,False,run,5.072751257052003,hurdle,False,0.07,,run,,3006,True,False
+1.4784424971749484,,,0.0,False,run,5.530305381934526,hurdle,False,0.07,,run,,3007,False,False
+1.633296415097219,,run,5.8027951825514155,True,run,5.8027951825514155,hurdle,False,0.07,,run,trunk_contact,3008,False,False
+1.6324556743972831,,,0.0,False,run,1.6300445245210784,hurdle,False,0.07,,run,,3009,True,False
+1.3481378601853808,,,0.0,False,run,5.312888287262062,hurdle,False,0.07,,run,,3010,True,False
+1.6388022944261664,,,0.0,False,run,8.336236549734728,hurdle,False,0.07,,run,,3011,False,True
+1.3741639128525016,,run,4.486403264511343,True,run,4.486403264511343,hurdle,True,0.07,,run,left_course,3012,False,False
+1.3280638705807832,,,0.0,False,run,5.316472660037404,hurdle,False,0.07,,run,,3013,True,False
+1.5376489072369712,,,0.0,False,run,5.770827746560755,hurdle,False,0.07,,run,,3014,True,False
+1.329203598902098,,,0.0,False,run,5.736424540362272,hurdle,False,0.07,,run,,3015,False,False
+1.6174616073906436,,,0.0,False,run,5.183312874585907,hurdle,False,0.07,,run,,3016,True,False
+1.437124244983445,,,0.0,False,run,8.069961046211482,hurdle,False,0.07,,run,,3017,False,True
+1.4833025170087917,,run,4.98470016376544,True,run,4.98470016376544,hurdle,False,0.07,,run,hit_hurdle,3018,False,False
+1.4801141367169983,,,0.0,False,run,7.874009847717669,hurdle,False,0.07,,run,,3019,False,True
+1.4746061747680177,,stepover,5.414214270312305,True,stepover,5.414214270312305,hurdle,False,0.07,,stepover,tilt,3000,False,False
+1.66708060822736,,,0.0,False,stepover,5.112576672196503,hurdle,False,0.07,,stepover,,3001,True,False
+1.359360774742311,,,0.0,False,stepover,7.998182344844821,hurdle,False,0.07,,stepover,,3002,False,True
+1.3249074400357321,,,0.0,False,stepover,5.160067983193406,hurdle,False,0.07,,stepover,,3003,True,False
+1.64059667357496,,stepover,5.294375697831585,True,stepover,5.294375697831585,hurdle,False,0.07,,stepover,hit_hurdle,3004,False,False
+1.3383361178986797,,stepover,6.838651107082989,True,stepover,6.838651107082989,hurdle,True,0.07,,stepover,left_course,3005,False,False
+1.313525726753223,,,0.0,False,stepover,7.697707149914544,hurdle,False,0.07,,stepover,,3006,False,True
+1.4784424971749484,,stepover,5.401197810249896,True,stepover,5.401197810249896,hurdle,False,0.07,,stepover,tilt,3007,False,False
+1.633296415097219,,,0.0,False,stepover,5.207567513603359,hurdle,False,0.07,,stepover,,3008,True,False
+1.6324556743972831,,,0.0,False,stepover,5.136615137144509,hurdle,False,0.07,,stepover,,3009,True,False
+1.3481378601853808,,,0.0,False,stepover,5.036794730861241,hurdle,False,0.07,,stepover,,3010,True,False
+1.6388022944261664,,,0.0,False,stepover,8.552246987950994,hurdle,False,0.07,,stepover,,3011,False,True
+1.3741639128525016,,,0.0,False,stepover,5.09616353131733,hurdle,False,0.07,,stepover,,3012,True,False
+1.3280638705807832,,,0.0,False,stepover,8.050773971301831,hurdle,False,0.07,,stepover,,3013,False,True
+1.5376489072369712,,,0.0,False,stepover,8.465964365161236,hurdle,False,0.07,,stepover,,3014,False,True
+1.329203598902098,,,0.0,False,stepover,7.946558405264575,hurdle,False,0.07,,stepover,,3015,False,True
+1.6174616073906436,,,0.0,False,stepover,8.627274304313074,hurdle,False,0.07,,stepover,,3016,False,True
+1.437124244983445,,stepover,5.367107122988125,True,stepover,5.367107122988125,hurdle,False,0.07,,stepover,hit_hurdle,3017,False,False
+1.4833025170087917,,stepover,5.359907665770557,True,stepover,5.359907665770557,hurdle,False,0.07,,stepover,hit_hurdle,3018,False,False
+1.4801141367169983,,,0.0,False,stepover,8.2924426646606,hurdle,False,0.07,,stepover,,3019,False,True
+1.4746061747680177,sta>wal@26 wal>run@52 run>ste@257 ste>run@389,,0.0,False,run,7.991573633284527,hurdle,False,0.1,4,supervisor,,3000,False,True
+1.66708060822736,sta>wal@26 wal>run@55 run>ste@447,stepover,5.574744237632578,True,stepover,5.574744237632578,hurdle,False,0.1,3,supervisor,tilt,3001,False,False
+1.359360774742311,sta>wal@26 wal>run@53 run>ste@187,,0.0,False,stepover,5.1399813895937925,hurdle,False,0.1,3,supervisor,,3002,True,False
+1.3249074400357321,sta>wal@26 wal>run@52 run>ste@195,,0.0,False,stepover,5.032812805372372,hurdle,False,0.1,3,supervisor,,3003,True,False
+1.64059667357496,sta>wal@26 wal>run@52 run>ste@165,,0.0,False,stepover,4.9886191823384864,hurdle,False,0.1,3,supervisor,,3004,True,False
+1.3383361178986797,sta>wal@26 wal>run@52 run>ste@185,,0.0,False,stepover,5.016958703131866,hurdle,False,0.1,3,supervisor,,3005,True,False
+1.313525726753223,sta>wal@26 wal>run@52 run>ste@193,stepover,5.1750120873919485,True,stepover,5.1750120873919485,hurdle,False,0.1,3,supervisor,tilt,3006,False,False
+1.4784424971749484,sta>wal@26 wal>run@52 run>ste@177,,0.0,False,stepover,5.187405804313781,hurdle,False,0.1,3,supervisor,,3007,True,False
+1.633296415097219,sta>wal@26 wal>run@52 run>ste@163 ste>run@266,,0.0,False,run,8.644974233595406,hurdle,False,0.1,4,supervisor,,3008,False,True
+1.6324556743972831,sta>wal@26 wal>run@56 run>ste@172 ste>run@289,,0.0,False,run,8.09682202690908,hurdle,False,0.1,4,supervisor,,3009,False,True
+1.3481378601853808,sta>wal@26 wal>run@55 run>ste@190,stepover,4.998225435114921,True,stepover,4.998225435114921,hurdle,False,0.1,3,supervisor,hit_hurdle,3010,False,False
+1.6388022944261664,sta>wal@26 wal>run@55 run>ste@212,,0.0,False,stepover,5.2511633697280296,hurdle,False,0.1,3,supervisor,,3011,True,False
+1.3741639128525016,sta>wal@26 wal>run@56 run>ste@189,,0.0,False,stepover,5.016682620765607,hurdle,False,0.1,3,supervisor,,3012,True,False
+1.3280638705807832,sta>wal@26 wal>run@52 run>ste@187 ste>run@316,,0.0,False,run,7.993748108893569,hurdle,False,0.1,4,supervisor,,3013,False,True
+1.5376489072369712,sta>wal@26 wal>run@55 run>ste@171 ste>run@324,,0.0,False,run,8.045769278714673,hurdle,False,0.1,4,supervisor,,3014,False,True
+1.329203598902098,sta>wal@26 wal>run@54,,0.0,False,run,0.06703947846889631,hurdle,False,0.1,2,supervisor,,3015,True,False
+1.6174616073906436,sta>wal@26 wal>run@52 run>ste@167 ste>run@314,,0.0,False,run,8.278948340125307,hurdle,False,0.1,4,supervisor,,3016,False,True
+1.437124244983445,sta>wal@26 wal>run@58 run>ste@185,,0.0,False,stepover,5.222527327869213,hurdle,False,0.1,3,supervisor,,3017,True,False
+1.4833025170087917,sta>wal@26 wal>run@52 run>ste@172,,0.0,False,stepover,5.157114871322178,hurdle,False,0.1,3,supervisor,,3018,True,False
+1.4801141367169983,sta>wal@26 wal>run@52 run>ste@183,stepover,5.212943393931553,True,stepover,5.212943393931553,hurdle,False,0.1,3,supervisor,tilt,3019,False,False
+1.4746061747680177,,run,4.448297477391277,True,run,4.448297477391277,hurdle,False,0.1,,run,tilt,3000,False,False
+1.66708060822736,,run,5.2508414107522485,True,run,5.2508414107522485,hurdle,False,0.1,,run,hit_hurdle,3001,False,False
+1.359360774742311,,,0.0,False,run,4.756426581998279,hurdle,False,0.1,,run,,3002,True,False
+1.3249074400357321,,run,4.9605077497038215,True,run,4.9605077497038215,hurdle,False,0.1,,run,hit_hurdle,3003,False,False
+1.64059667357496,,run,5.251755803460747,True,run,5.251755803460747,hurdle,True,0.1,,run,left_course,3004,False,False
+1.3383361178986797,,run,4.98888873906778,True,run,4.98888873906778,hurdle,False,0.1,,run,hit_hurdle,3005,False,False
+1.313525726753223,,,0.0,False,run,5.2438655052631615,hurdle,False,0.1,,run,,3006,True,False
+1.4784424971749484,,run,4.623396097451787,True,run,4.623396097451787,hurdle,False,0.1,,run,tilt,3007,False,False
+1.633296415097219,,run,5.11886397899935,True,run,5.11886397899935,hurdle,False,0.1,,run,tilt,3008,False,False
+1.6324556743972831,,,0.0,False,run,1.6300445245210784,hurdle,False,0.1,,run,,3009,True,False
+1.3481378601853808,,,0.0,False,run,5.271301932436302,hurdle,False,0.1,,run,,3010,True,False
+1.6388022944261664,,,0.0,False,run,5.139276133357475,hurdle,False,0.1,,run,,3011,True,False
+1.3741639128525016,,run,5.43158289112955,True,run,5.43158289112955,hurdle,False,0.1,,run,tilt,3012,False,False
+1.3280638705807832,,,0.0,False,run,7.482035466108922,hurdle,False,0.1,,run,,3013,False,True
+1.5376489072369712,,,0.0,False,run,4.75532486836252,hurdle,False,0.1,,run,,3014,True,False
+1.329203598902098,,run,5.456387016653718,True,run,5.456387016653718,hurdle,False,0.1,,run,tilt,3015,False,False
+1.6174616073906436,,run,4.987047825311884,True,run,4.987047825311884,hurdle,False,0.1,,run,hit_hurdle,3016,False,False
+1.437124244983445,,run,5.356783312860888,True,run,5.356783312860888,hurdle,True,0.1,,run,left_course,3017,False,False
+1.4833025170087917,,,0.0,False,run,5.143022950873905,hurdle,False,0.1,,run,,3018,True,False
+1.4801141367169983,,run,4.85612386350287,True,run,4.85612386350287,hurdle,False,0.1,,run,hit_hurdle,3019,False,False
+1.4746061747680177,,stepover,5.133393725076107,True,stepover,5.133393725076107,hurdle,False,0.1,,stepover,tilt,3000,False,False
+1.66708060822736,,,0.0,False,stepover,8.692929059781786,hurdle,False,0.1,,stepover,,3001,False,True
+1.359360774742311,,,0.0,False,stepover,7.1183688826661395,hurdle,False,0.1,,stepover,,3002,False,True
+1.3249074400357321,,,0.0,False,stepover,5.020428891074377,hurdle,False,0.1,,stepover,,3003,True,False
+1.64059667357496,,,0.0,False,stepover,5.191102110116322,hurdle,False,0.1,,stepover,,3004,True,False
+1.3383361178986797,,stepover,5.007322231368232,True,stepover,5.007322231368232,hurdle,False,0.1,,stepover,hit_hurdle,3005,False,False
+1.313525726753223,,,0.0,False,stepover,5.211735599578437,hurdle,False,0.1,,stepover,,3006,True,False
+1.4784424971749484,,,0.0,False,stepover,4.991788073807095,hurdle,False,0.1,,stepover,,3007,True,False
+1.633296415097219,,,0.0,False,stepover,7.4696187162114605,hurdle,False,0.1,,stepover,,3008,False,True
+1.6324556743972831,,stepover,5.0500250914069635,True,stepover,5.0500250914069635,hurdle,False,0.1,,stepover,tilt,3009,False,False
+1.3481378601853808,,stepover,6.849992514271234,True,stepover,6.849992514271234,hurdle,True,0.1,,stepover,left_course,3010,False,False
+1.6388022944261664,,,0.0,False,stepover,5.155462828506295,hurdle,False,0.1,,stepover,,3011,True,False
+1.3741639128525016,,,0.0,False,stepover,7.917115810314757,hurdle,False,0.1,,stepover,,3012,False,True
+1.3280638705807832,,,0.0,False,stepover,7.91662351122209,hurdle,False,0.1,,stepover,,3013,False,True
+1.5376489072369712,,,0.0,False,stepover,5.206718747983759,hurdle,False,0.1,,stepover,,3014,True,False
+1.329203598902098,,,0.0,False,stepover,7.746184373596579,hurdle,False,0.1,,stepover,,3015,False,True
+1.6174616073906436,,,0.0,False,stepover,8.606114392486473,hurdle,False,0.1,,stepover,,3016,False,True
+1.437124244983445,,stepover,4.989451065028114,True,stepover,4.989451065028114,hurdle,False,0.1,,stepover,hit_hurdle,3017,False,False
+1.4833025170087917,,stepover,5.1932728516378095,True,stepover,5.1932728516378095,hurdle,False,0.1,,stepover,tilt,3018,False,False
+1.4801141367169983,,stepover,5.676850469380032,True,stepover,5.676850469380032,hurdle,False,0.1,,stepover,trunk_contact,3019,False,False
